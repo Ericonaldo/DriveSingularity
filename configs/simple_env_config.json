@@ -1,0 +1,15 @@
+{
+    "world": "configs/resources/osm.json",
+    "render_dir": "render/osm",
+    "n_agents": 20,
+    "total_vehicles": 40,
+    "length_range": [15, 1],
+    "width_range": [8, 1],
+    "height_range": [15, 3],
+    "velocity_range": [0, 5],
+    "target_velocity_range": [10, 10],
+    "halfLengthRange": [12, 14],
+    "halfWidthRange": [7, 8],
+    "velocityRange": [10, 20],
+    "targetVelocityRange": [30, 50]
+}

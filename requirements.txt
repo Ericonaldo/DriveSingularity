@@ -1,0 +1,9 @@
+ray
+gym
+opencv-python
+tensorflow
+setuptools
+psutil
+dill
+requests
+lz4

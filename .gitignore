@@ -41,3 +41,4 @@ __pycache__
 # workspace
 .idea
 .vscode
+cmake-build-debug

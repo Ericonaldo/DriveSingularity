@@ -1,0 +1,26 @@
+{
+  "world": "resources/highway.json",
+  "vehicles": [
+    {
+      "type": 0,
+      "x": 0,
+      "y": 0,
+      "velocity": 0,
+      "maxVelocity": 0,
+      "halfWidth": 0,
+      "halfHeight": 0
+    },
+    {
+
+    },
+    {
+      "type": 1,
+      "x": 0,
+      "y": 0,
+      "velocity": 0,
+      "maxVelocity": 0,
+      "halfWidth": 0,
+      "halfHeight": 0
+    }
+  ]
+}
