@@ -5,8 +5,15 @@ A scalable multi-agent learning simulator for autonomous driving
 
 **Step 1: install the requirements**
 
+For Ubuntu,
 ```shell script
 [sudo] apt install git build-essential cmake python3 python3-pip libjsoncpp-dev
+pip3 install -r requirements.txt
+```
+
+For Mac OS X,
+```shell script
+brew install cmake python3 jsoncpp
 pip3 install -r requirements.txt
 ```
 
