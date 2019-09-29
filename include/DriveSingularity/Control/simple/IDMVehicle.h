@@ -42,9 +42,12 @@ private:
                                               bool switchLane = false) const;
   std::shared_ptr<VehicleController> getRearVehicle(roadmap::LaneId laneId) const;
 
+  VectorD getBarrierPositionOnStraightRoad();
+
 private:
   double accDecay(const VectorD & barrierPos);
 };
+
 } // namespace control
 } // namespace ds
 

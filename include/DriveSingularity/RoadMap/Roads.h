@@ -167,18 +167,26 @@ private:
 
 class Onramp : public Road {
 public:
-  Onramp(RoadId id, const Obb &obb, std::array<RoadId, 3> roads)
-      : Road(id), roads(roads), obb(obb) {
+  Onramp(RoadId id, const std::array<RoadId, 3> &roads,
+          const std::array<VectorD, 4> &anchors)
+      : Road(id), roads(roads), anchors(anchors) {
     nodeType = NodeType::Onramp;
     counter.fill(0);
   }
 
   const std::array<RoadId, 3> &getLinkedRoads() { return roads; }
-  const Obb &getObb() const { return obb; }
+  const std::array<VectorD, 4> &getAnchors() { return anchors; }
   bool onRoad(const VectorD &position) const override;
   LaneId locate(const VectorD &position) const override;
 
-  VectorD getPosition() const override { return obb.getPosition(); }
+  VectorD getPosition() const override {
+    VectorD center(0, 0);
+    for (auto & anchor : anchors) {
+      center = center + anchor;
+    }
+    center = center / 4;
+    return center;
+  }
 
   /**
    * update counter
@@ -192,10 +200,9 @@ public:
    * 	give VEHICLE a suggestion on whether it should slow down on ramp
    *
    * 	@param vehicle the vehicle approaching ramp
-   * 	@return whether the vehicle should slow down and the position of
-   * 		imaginary barrier
+   * 	@return whether the vehicle should slow down
    */
-  std::pair<bool, VectorD> needSlowDown(roadmap::RoadId from) const;
+  bool needSlowDown(roadmap::RoadId from) const;
 
 private:
   /**
@@ -204,26 +211,34 @@ private:
    */
   std::array<int, 2> counter{};
   std::array<RoadId, 3> roads;
-  Obb obb;
+  std::array<VectorD, 4> anchors;
 };
 
 class Offramp : public Road {
 public:
-  Offramp(RoadId id, const Obb &obb, std::array<RoadId , 3> roads)
-       : Road(id), roads(roads), obb(obb) {
+  Offramp(RoadId id, const std::array<RoadId, 3> &roads,
+          const std::array<VectorD, 4> &anchors)
+       : Road(id), roads(roads), anchors(anchors) {
     nodeType = NodeType::Offramp;
   }
 
   const std::array<RoadId, 3> &getLinkedRoads() { return roads; }
-  const Obb &getObb() const { return obb; }
+  const std::array<VectorD, 4> &getAnchors() { return anchors; }
   bool onRoad(const VectorD &position) const override;
   LaneId locate(const VectorD &position) const override;
 
-  VectorD getPosition() const override { return obb.getPosition(); }
+  VectorD getPosition() const override {
+    VectorD center(0, 0);
+    for (auto & anchor : anchors) {
+      center = center + anchor;
+    }
+    center = center / 4;
+    return center;
+  }
 
 private:
   std::array<RoadId, 3> roads;
-  Obb obb;
+  std::array<VectorD, 4> anchors;
 };
 
 } // namespace roadmap

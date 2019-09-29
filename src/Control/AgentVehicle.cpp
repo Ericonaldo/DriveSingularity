@@ -105,6 +105,8 @@ std::unordered_map<event::EVENT_TYPE, float>
 AgentVehicle::retrieveEventEvaluation() {
   std::unordered_map<event::EVENT_TYPE, float> res = enabledEvents;
 
+  //    std::cout << "[DEBUG] agent.retrieveEventEvaluation: in" << std::endl;
+
   // clean value
   for (auto &enabledEvent : enabledEvents) {
     enabledEvent.second = 0.;

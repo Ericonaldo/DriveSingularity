@@ -42,3 +42,6 @@ __pycache__
 .idea
 .vscode
 cmake-build-debug
+*.pkl
+ds.egg-info
+venv
