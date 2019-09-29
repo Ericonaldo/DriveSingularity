@@ -1,0 +1,3440 @@
+{
+  "roads": [
+    {
+      "id": 229,
+      "type": "straight",
+      "from": 230,
+      "to": 227,
+      "width": 160.000000,
+      "ft": [
+        800.000000,
+        320.000000
+      ],
+      "fb": [
+        800.000000,
+        480.000000
+      ],
+      "tt": [
+        600.000000,
+        320.000000
+      ],
+      "tb": [
+        600.000000,
+        480.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 230,
+      "type": "straight",
+      "from": 229,
+      "to": 232,
+      "width": 160.000000,
+      "ft": [
+        800.000000,
+        480.000000
+      ],
+      "fb": [
+        800.000000,
+        320.000000
+      ],
+      "tt": [
+        1000.000000,
+        480.000000
+      ],
+      "tb": [
+        1000.000000,
+        320.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 235,
+      "type": "straight",
+      "from": 236,
+      "to": 237,
+      "width": 160.000000,
+      "ft": [
+        1615.406592,
+        480.000000
+      ],
+      "fb": [
+        1584.593408,
+        320.000000
+      ],
+      "tt": [
+        1874.670163,
+        376.294572
+      ],
+      "tb": [
+        1825.329837,
+        223.705428
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 236,
+      "type": "straight",
+      "from": 235,
+      "to": 233,
+      "width": 160.000000,
+      "ft": [
+        1584.593408,
+        320.000000
+      ],
+      "fb": [
+        1615.406592,
+        480.000000
+      ],
+      "tt": [
+        1400.000000,
+        320.000000
+      ],
+      "tb": [
+        1400.000000,
+        480.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 237,
+      "type": "straight",
+      "from": 235,
+      "to": 238,
+      "width": 160.000000,
+      "ft": [
+        1874.670163,
+        376.294572
+      ],
+      "fb": [
+        1825.329837,
+        223.705428
+      ],
+      "tt": [
+        2050.000000,
+        332.462113
+      ],
+      "tb": [
+        2050.000000,
+        167.537887
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 238,
+      "type": "straight",
+      "from": 237,
+      "to": 239,
+      "width": 160.000000,
+      "ft": [
+        2050.000000,
+        332.462113
+      ],
+      "fb": [
+        2050.000000,
+        167.537887
+      ],
+      "tt": [
+        2217.153788,
+        374.250560
+      ],
+      "tb": [
+        2282.846212,
+        225.749440
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 239,
+      "type": "straight",
+      "from": 238,
+      "to": 240,
+      "width": 160.000000,
+      "ft": [
+        2217.153788,
+        374.250560
+      ],
+      "fb": [
+        2282.846212,
+        225.749440
+      ],
+      "tt": [
+        2332.785352,
+        451.338269
+      ],
+      "tb": [
+        2467.214648,
+        348.661731
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 240,
+      "type": "straight",
+      "from": 239,
+      "to": 241,
+      "width": 160.000000,
+      "ft": [
+        2332.785352,
+        451.338269
+      ],
+      "fb": [
+        2467.214648,
+        348.661731
+      ],
+      "tt": [
+        2374.105336,
+        575.298221
+      ],
+      "tb": [
+        2525.894664,
+        524.701779
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 241,
+      "type": "straight",
+      "from": 240,
+      "to": 264,
+      "width": 160.000000,
+      "ft": [
+        2374.105336,
+        575.298221
+      ],
+      "fb": [
+        2525.894664,
+        524.701779
+      ],
+      "tt": [
+        2420.000000,
+        712.982213
+      ],
+      "tb": [
+        2580.000000,
+        687.017787
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 242,
+      "type": "straight",
+      "from": 243,
+      "to": 244,
+      "width": 160.000000,
+      "ft": [
+        2374.105336,
+        1024.701779
+      ],
+      "fb": [
+        2525.894664,
+        1075.298221
+      ],
+      "tt": [
+        2332.785352,
+        1148.661731
+      ],
+      "tb": [
+        2467.214648,
+        1251.338269
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 243,
+      "type": "straight",
+      "from": 242,
+      "to": 264,
+      "width": 160.000000,
+      "ft": [
+        2525.894664,
+        1075.298221
+      ],
+      "fb": [
+        2374.105336,
+        1024.701779
+      ],
+      "tt": [
+        2580.000000,
+        912.982213
+      ],
+      "tb": [
+        2420.000000,
+        887.017787
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 244,
+      "type": "straight",
+      "from": 242,
+      "to": 245,
+      "width": 160.000000,
+      "ft": [
+        2332.785352,
+        1148.661731
+      ],
+      "fb": [
+        2467.214648,
+        1251.338269
+      ],
+      "tt": [
+        2217.153788,
+        1225.749440
+      ],
+      "tb": [
+        2282.846212,
+        1374.250560
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 245,
+      "type": "straight",
+      "from": 244,
+      "to": 246,
+      "width": 160.000000,
+      "ft": [
+        2217.153788,
+        1225.749440
+      ],
+      "fb": [
+        2282.846212,
+        1374.250560
+      ],
+      "tt": [
+        2050.000000,
+        1267.537887
+      ],
+      "tb": [
+        2050.000000,
+        1432.462113
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 246,
+      "type": "straight",
+      "from": 245,
+      "to": 247,
+      "width": 160.000000,
+      "ft": [
+        2050.000000,
+        1267.537887
+      ],
+      "fb": [
+        2050.000000,
+        1432.462113
+      ],
+      "tt": [
+        1874.670163,
+        1223.705428
+      ],
+      "tb": [
+        1825.329837,
+        1376.294572
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 247,
+      "type": "straight",
+      "from": 246,
+      "to": 248,
+      "width": 160.000000,
+      "ft": [
+        1874.670163,
+        1223.705428
+      ],
+      "fb": [
+        1825.329837,
+        1376.294572
+      ],
+      "tt": [
+        1615.406592,
+        1120.000000
+      ],
+      "tb": [
+        1584.593408,
+        1280.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 248,
+      "type": "straight",
+      "from": 247,
+      "to": 249,
+      "width": 160.000000,
+      "ft": [
+        1615.406592,
+        1120.000000
+      ],
+      "fb": [
+        1584.593408,
+        1280.000000
+      ],
+      "tt": [
+        1380.565002,
+        1120.000000
+      ],
+      "tb": [
+        1380.565002,
+        1280.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 253,
+      "type": "straight",
+      "from": 254,
+      "to": 250,
+      "width": 160.000000,
+      "ft": [
+        800.000000,
+        1280.000000
+      ],
+      "fb": [
+        800.000000,
+        1120.000000
+      ],
+      "tt": [
+        1019.434998,
+        1280.000000
+      ],
+      "tb": [
+        1019.434998,
+        1120.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 254,
+      "type": "straight",
+      "from": 253,
+      "to": 255,
+      "width": 160.000000,
+      "ft": [
+        800.000000,
+        1120.000000
+      ],
+      "fb": [
+        800.000000,
+        1280.000000
+      ],
+      "tt": [
+        600.000000,
+        1120.000000
+      ],
+      "tb": [
+        600.000000,
+        1280.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 260,
+      "type": "straight",
+      "from": 261,
+      "to": 234,
+      "width": 160.000000,
+      "ft": [
+        1280.000000,
+        800.000000
+      ],
+      "fb": [
+        1120.000000,
+        800.000000
+      ],
+      "tt": [
+        1280.000000,
+        600.000000
+      ],
+      "tb": [
+        1120.000000,
+        600.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 261,
+      "type": "straight",
+      "from": 260,
+      "to": 251,
+      "width": 160.000000,
+      "ft": [
+        1120.000000,
+        800.000000
+      ],
+      "fb": [
+        1280.000000,
+        800.000000
+      ],
+      "tt": [
+        1120.000000,
+        1019.434998
+      ],
+      "tb": [
+        1280.000000,
+        1019.434998
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 262,
+      "type": "straight",
+      "from": 263,
+      "to": 228,
+      "width": 160.000000,
+      "ft": [
+        480.000000,
+        800.000000
+      ],
+      "fb": [
+        320.000000,
+        800.000000
+      ],
+      "tt": [
+        480.000000,
+        600.000000
+      ],
+      "tb": [
+        320.000000,
+        600.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 263,
+      "type": "straight",
+      "from": 262,
+      "to": 257,
+      "width": 160.000000,
+      "ft": [
+        320.000000,
+        800.000000
+      ],
+      "fb": [
+        480.000000,
+        800.000000
+      ],
+      "tt": [
+        320.000000,
+        1000.000000
+      ],
+      "tb": [
+        480.000000,
+        1000.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 264,
+      "type": "straight",
+      "from": 241,
+      "to": 243,
+      "width": 160.000000,
+      "ft": [
+        2420.000000,
+        712.982213
+      ],
+      "fb": [
+        2580.000000,
+        687.017787
+      ],
+      "tt": [
+        2420.000000,
+        887.017787
+      ],
+      "tb": [
+        2580.000000,
+        912.982213
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 265,
+      "type": "straight",
+      "from": 266,
+      "to": 270,
+      "width": 160.000000,
+      "ft": [
+        320.000000,
+        1824.222051
+      ],
+      "fb": [
+        480.000000,
+        1775.777949
+      ],
+      "tt": [
+        382.311180,
+        1917.688820
+      ],
+      "tb": [
+        497.688820,
+        1802.311180
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 266,
+      "type": "straight",
+      "from": 265,
+      "to": 258,
+      "width": 160.000000,
+      "ft": [
+        480.000000,
+        1775.777949
+      ],
+      "fb": [
+        320.000000,
+        1824.222051
+      ],
+      "tt": [
+        480.000000,
+        1400.000000
+      ],
+      "tb": [
+        320.000000,
+        1400.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 267,
+      "type": "straight",
+      "from": 268,
+      "to": 271,
+      "width": 160.000000,
+      "ft": [
+        1120.000000,
+        1775.777949
+      ],
+      "fb": [
+        1280.000000,
+        1824.222051
+      ],
+      "tt": [
+        1102.311180,
+        1802.311180
+      ],
+      "tb": [
+        1217.688820,
+        1917.688820
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 268,
+      "type": "straight",
+      "from": 267,
+      "to": 100,
+      "width": 160.000000,
+      "ft": [
+        1280.000000,
+        1824.222051
+      ],
+      "fb": [
+        1120.000000,
+        1775.777949
+      ],
+      "tt": [
+        1280.000000,
+        1638.869995
+      ],
+      "tb": [
+        1120.000000,
+        1638.869995
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 269,
+      "type": "straight",
+      "from": 270,
+      "to": 271,
+      "width": 160.000000,
+      "ft": [
+        475.777949,
+        1980.000000
+      ],
+      "fb": [
+        524.222051,
+        1820.000000
+      ],
+      "tt": [
+        1124.222051,
+        1980.000000
+      ],
+      "tb": [
+        1075.777949,
+        1820.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 270,
+      "type": "straight",
+      "from": 269,
+      "to": 265,
+      "width": 160.000000,
+      "ft": [
+        524.222051,
+        1820.000000
+      ],
+      "fb": [
+        475.777949,
+        1980.000000
+      ],
+      "tt": [
+        497.688820,
+        1802.311180
+      ],
+      "tb": [
+        382.311180,
+        1917.688820
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 271,
+      "type": "straight",
+      "from": 269,
+      "to": 267,
+      "width": 160.000000,
+      "ft": [
+        1124.222051,
+        1980.000000
+      ],
+      "fb": [
+        1075.777949,
+        1820.000000
+      ],
+      "tt": [
+        1217.688820,
+        1917.688820
+      ],
+      "tb": [
+        1102.311180,
+        1802.311180
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 221,
+      "type": "straight",
+      "from": 225,
+      "to": 0,
+      "width": 160.000000,
+      "ft": [
+        480.000000,
+        200.000000
+      ],
+      "fb": [
+        320.000000,
+        200.000000
+      ],
+      "tt": [
+        480.000000,
+        -400.000000
+      ],
+      "tb": [
+        320.000000,
+        -400.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 225,
+      "type": "straight",
+      "from": 221,
+      "to": 4,
+      "width": 160.000000,
+      "ft": [
+        320.000000,
+        200.000000
+      ],
+      "fb": [
+        480.000000,
+        200.000000
+      ],
+      "tt": [
+        320.000000,
+        308.000000
+      ],
+      "tb": [
+        480.000000,
+        308.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 224,
+      "type": "straight",
+      "from": 226,
+      "to": 3,
+      "width": 160.000000,
+      "ft": [
+        200.000000,
+        320.000000
+      ],
+      "fb": [
+        200.000000,
+        480.000000
+      ],
+      "tt": [
+        -400.000000,
+        320.000000
+      ],
+      "tb": [
+        -400.000000,
+        480.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 226,
+      "type": "straight",
+      "from": 224,
+      "to": 4,
+      "width": 160.000000,
+      "ft": [
+        200.000000,
+        480.000000
+      ],
+      "fb": [
+        200.000000,
+        320.000000
+      ],
+      "tt": [
+        308.000000,
+        480.000000
+      ],
+      "tb": [
+        308.000000,
+        320.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 227,
+      "type": "straight",
+      "from": 229,
+      "to": 4,
+      "width": 160.000000,
+      "ft": [
+        600.000000,
+        320.000000
+      ],
+      "fb": [
+        600.000000,
+        480.000000
+      ],
+      "tt": [
+        492.000000,
+        320.000000
+      ],
+      "tb": [
+        492.000000,
+        480.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 228,
+      "type": "straight",
+      "from": 262,
+      "to": 4,
+      "width": 160.000000,
+      "ft": [
+        480.000000,
+        600.000000
+      ],
+      "fb": [
+        320.000000,
+        600.000000
+      ],
+      "tt": [
+        480.000000,
+        492.000000
+      ],
+      "tb": [
+        320.000000,
+        492.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 222,
+      "type": "straight",
+      "from": 231,
+      "to": 1,
+      "width": 160.000000,
+      "ft": [
+        1280.000000,
+        200.000000
+      ],
+      "fb": [
+        1120.000000,
+        200.000000
+      ],
+      "tt": [
+        1280.000000,
+        -400.000000
+      ],
+      "tb": [
+        1120.000000,
+        -400.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 231,
+      "type": "straight",
+      "from": 222,
+      "to": 6,
+      "width": 160.000000,
+      "ft": [
+        1120.000000,
+        200.000000
+      ],
+      "fb": [
+        1280.000000,
+        200.000000
+      ],
+      "tt": [
+        1120.000000,
+        308.000000
+      ],
+      "tb": [
+        1280.000000,
+        308.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 232,
+      "type": "straight",
+      "from": 230,
+      "to": 6,
+      "width": 160.000000,
+      "ft": [
+        1000.000000,
+        480.000000
+      ],
+      "fb": [
+        1000.000000,
+        320.000000
+      ],
+      "tt": [
+        1108.000000,
+        480.000000
+      ],
+      "tb": [
+        1108.000000,
+        320.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 233,
+      "type": "straight",
+      "from": 236,
+      "to": 6,
+      "width": 160.000000,
+      "ft": [
+        1400.000000,
+        320.000000
+      ],
+      "fb": [
+        1400.000000,
+        480.000000
+      ],
+      "tt": [
+        1292.000000,
+        320.000000
+      ],
+      "tb": [
+        1292.000000,
+        480.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 234,
+      "type": "straight",
+      "from": 260,
+      "to": 6,
+      "width": 160.000000,
+      "ft": [
+        1280.000000,
+        600.000000
+      ],
+      "fb": [
+        1120.000000,
+        600.000000
+      ],
+      "tt": [
+        1280.000000,
+        492.000000
+      ],
+      "tb": [
+        1120.000000,
+        492.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 249,
+      "type": "straight",
+      "from": 248,
+      "to": 19,
+      "width": 160.000000,
+      "ft": [
+        1380.565002,
+        1120.000000
+      ],
+      "fb": [
+        1380.565002,
+        1280.000000
+      ],
+      "tt": [
+        1292.000000,
+        1120.000000
+      ],
+      "tb": [
+        1292.000000,
+        1280.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 250,
+      "type": "straight",
+      "from": 253,
+      "to": 19,
+      "width": 160.000000,
+      "ft": [
+        1019.434998,
+        1280.000000
+      ],
+      "fb": [
+        1019.434998,
+        1120.000000
+      ],
+      "tt": [
+        1108.000000,
+        1280.000000
+      ],
+      "tb": [
+        1108.000000,
+        1120.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 251,
+      "type": "straight",
+      "from": 261,
+      "to": 19,
+      "width": 160.000000,
+      "ft": [
+        1120.000000,
+        1019.434998
+      ],
+      "fb": [
+        1280.000000,
+        1019.434998
+      ],
+      "tt": [
+        1120.000000,
+        1108.000000
+      ],
+      "tb": [
+        1280.000000,
+        1108.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 252,
+      "type": "straight",
+      "from": 273,
+      "to": 19,
+      "width": 160.000000,
+      "ft": [
+        1280.000000,
+        1380.565002
+      ],
+      "fb": [
+        1120.000000,
+        1380.565002
+      ],
+      "tt": [
+        1280.000000,
+        1292.000000
+      ],
+      "tb": [
+        1120.000000,
+        1292.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 273,
+      "type": "straight",
+      "from": 252,
+      "to": 100,
+      "width": 160.000000,
+      "ft": [
+        1120.000000,
+        1380.565002
+      ],
+      "fb": [
+        1280.000000,
+        1380.565002
+      ],
+      "tt": [
+        1120.000000,
+        1561.130005
+      ],
+      "tb": [
+        1280.000000,
+        1561.130005
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 255,
+      "type": "straight",
+      "from": 254,
+      "to": 21,
+      "width": 160.000000,
+      "ft": [
+        600.000000,
+        1120.000000
+      ],
+      "fb": [
+        600.000000,
+        1280.000000
+      ],
+      "tt": [
+        492.000000,
+        1120.000000
+      ],
+      "tb": [
+        492.000000,
+        1280.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 256,
+      "type": "straight",
+      "from": 259,
+      "to": 21,
+      "width": 160.000000,
+      "ft": [
+        200.000000,
+        1280.000000
+      ],
+      "fb": [
+        200.000000,
+        1120.000000
+      ],
+      "tt": [
+        308.000000,
+        1280.000000
+      ],
+      "tb": [
+        308.000000,
+        1120.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 259,
+      "type": "straight",
+      "from": 256,
+      "to": 22,
+      "width": 160.000000,
+      "ft": [
+        200.000000,
+        1120.000000
+      ],
+      "fb": [
+        200.000000,
+        1280.000000
+      ],
+      "tt": [
+        -400.000000,
+        1120.000000
+      ],
+      "tb": [
+        -400.000000,
+        1280.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 257,
+      "type": "straight",
+      "from": 263,
+      "to": 21,
+      "width": 160.000000,
+      "ft": [
+        320.000000,
+        1000.000000
+      ],
+      "fb": [
+        480.000000,
+        1000.000000
+      ],
+      "tt": [
+        320.000000,
+        1108.000000
+      ],
+      "tb": [
+        480.000000,
+        1108.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 258,
+      "type": "straight",
+      "from": 266,
+      "to": 21,
+      "width": 160.000000,
+      "ft": [
+        480.000000,
+        1400.000000
+      ],
+      "fb": [
+        320.000000,
+        1400.000000
+      ],
+      "tt": [
+        480.000000,
+        1292.000000
+      ],
+      "tb": [
+        320.000000,
+        1292.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 223,
+      "type": "straight",
+      "from": 2,
+      "to": 101,
+      "width": 160.000000,
+      "ft": [
+        -400.000000,
+        2280.000000
+      ],
+      "fb": [
+        -400.000000,
+        2120.000000
+      ],
+      "tt": [
+        1761.130005,
+        2280.000000
+      ],
+      "tb": [
+        1761.130005,
+        2120.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 272,
+      "type": "straight",
+      "from": 31,
+      "to": 101,
+      "width": 160.000000,
+      "ft": [
+        3400.000000,
+        2120.000000
+      ],
+      "fb": [
+        3400.000000,
+        2280.000000
+      ],
+      "tt": [
+        1838.869995,
+        2120.000000
+      ],
+      "tb": [
+        1838.869995,
+        2280.000000
+      ],
+      "lanes": [
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": true,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": true,
+          "turnRight": false,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        },
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "type": "straight",
+      "from": 100,
+      "to": 103,
+      "width": 40.000000,
+      "ft": [
+        1280.000000,
+        1638.869995
+      ],
+      "fb": [
+        1280.000000,
+        1561.130005
+      ],
+      "tt": [
+        1384.120000,
+        1812.400000
+      ],
+      "tb": [
+        1415.880000,
+        1787.600000
+      ],
+      "lanes": [
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "type": "straight",
+      "from": 102,
+      "to": 104,
+      "width": 40.000000,
+      "ft": [
+        1384.120000,
+        1812.400000
+      ],
+      "fb": [
+        1415.880000,
+        1787.600000
+      ],
+      "tt": [
+        1587.600000,
+        2015.880000
+      ],
+      "tb": [
+        1612.400000,
+        1984.120000
+      ],
+      "lanes": [
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "type": "straight",
+      "from": 103,
+      "to": 101,
+      "width": 40.000000,
+      "ft": [
+        1587.600000,
+        2015.880000
+      ],
+      "fb": [
+        1612.400000,
+        1984.120000
+      ],
+      "tt": [
+        1761.130005,
+        2120.000000
+      ],
+      "tb": [
+        1838.869995,
+        2120.000000
+      ],
+      "lanes": [
+        {
+          "reverse": false,
+          "goStraight": true,
+          "turnLeft": false,
+          "turnRight": true,
+          "turnRound": false,
+          "leftLine": "continuous",
+          "rightLine": "continuous"
+        }
+      ]
+    }
+  ],
+  "intersections": [
+    {
+      "id": 0,
+      "type": "terminal",
+      "linkedRoad": 221
+    },
+    {
+      "id": 1,
+      "type": "terminal",
+      "linkedRoad": 222
+    },
+    {
+      "id": 2,
+      "type": "terminal",
+      "linkedRoad": 223
+    },
+    {
+      "id": 3,
+      "type": "terminal",
+      "linkedRoad": 224
+    },
+    {
+      "id": 4,
+      "type": "crossroad",
+      "linkedRoads": [
+        226,
+        225,
+        227,
+        228
+      ],
+      "center": [
+        400.000000,
+        400.000000
+      ]
+    },
+    {
+      "id": 6,
+      "type": "crossroad",
+      "linkedRoads": [
+        232,
+        231,
+        233,
+        234
+      ],
+      "center": [
+        1200.000000,
+        400.000000
+      ]
+    },
+    {
+      "id": 19,
+      "type": "crossroad",
+      "linkedRoads": [
+        250,
+        251,
+        249,
+        252
+      ],
+      "center": [
+        1200.000000,
+        1200.000000
+      ]
+    },
+    {
+      "id": 21,
+      "type": "crossroad",
+      "linkedRoads": [
+        256,
+        257,
+        255,
+        258
+      ],
+      "center": [
+        400.000000,
+        1200.000000
+      ]
+    },
+    {
+      "id": 22,
+      "type": "terminal",
+      "linkedRoad": 259
+    },
+    {
+      "id": 31,
+      "type": "terminal",
+      "linkedRoad": 272
+    },
+    {
+      "id": 100,
+      "type": "offramp",
+      "center": [1200, 1600],
+      "rotation": 1.570796,
+      "linkedRoads": [273, 102, 268]
+    },
+    {
+      "id": 101,
+      "type": "onramp",
+      "center": [1800, 2200],
+      "linkedRoads": [223, 104, 272]
+    }
+  ]
+}
