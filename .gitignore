@@ -46,3 +46,5 @@ cmake-build-debug
 ds.egg-info
 venv
 build
+model
+render

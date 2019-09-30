@@ -54,23 +54,21 @@ class Environment(gym.Env):
         )
 
         # TODO(ming): initialize render and agents
+        env_setup['render_dir'] = osp.join(BASEDIR, env_setup['render_dir'])
         self._env.set_render(env_setup['render_dir'])
-
-        # sys.settrace(self._env.step)
+        print("[DEBUG] render locates: {}".format(env_setup['render_dir']))
 
         # TODO(ming): create generators for social vehicles
         # self._env.load_generator(env_setup["generators"])
         self._env_setup = env_setup
 
         agent_ids = self._env.agents()
-        print(agent_ids)
         assert len(agent_ids) > 0  # checked
 
         self._scenario_callback = scenario
         self._scenario_callback.init(env=self._env)
 
         self._scenario_callback.register_reward_rule(self._env)
-        self._render = False
 
     @property
     def agent_ids(self):
@@ -85,24 +83,20 @@ class Environment(gym.Env):
         return self._scenario_callback.action_space  # dict: key[agent_id], value[gym.space]
 
     def step(self, action: dict):
-
-        # try:
         feedback = self._env.step(action)
         obs_n, reward_n, done_n, info_n = parse_feedback(
             feedback, self._get_reward)
         return obs_n, reward_n, done_n, info_n
-        # except Exception as e:
-        #     print("[DEBUG] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-        #     traceback.print_exc()
 
-    def reset(self, episode=None):
+    def reset(self, episode=None, render=False):
         self._env.reset()
 
         sub_dir = osp.join(self._env_setup['render_dir'], str(episode))
-        if not osp.exists(sub_dir) and self._render:
+
+        if not osp.exists(sub_dir) and render:
             os.makedirs(sub_dir)
-    
-        self._env.set_render(sub_dir)
+            self._env.set_render(sub_dir)
+
         self._env.load_vehicles(self._env_setup["agents"])
         assert len(self._env.agents()) > 0
         self._scenario_callback.register_reward_rule(self._env)
@@ -133,9 +127,8 @@ class Environment(gym.Env):
     def turn_off_render(self):
         self._env.turn_off_render()
 
-    def render(self, mode='human'):
-        if self._render:
-            self._env.render()
+    # def render(self, mode='human'):
+    #     self._env.render()
 
     def save_render(self):
         self._env.save_render()

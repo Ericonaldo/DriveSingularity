@@ -4,6 +4,7 @@ from ray.rllib.env import MultiAgentEnv
 from pyds import engine
 from pyds import scenarios
 import numpy as np
+import time
 
 
 client_id = 0
@@ -32,7 +33,7 @@ def engine_handler(conn, env_setup, scenario):
         elif mess[0] == "reset:call":
             # print("[INFO] episode #{}".format(episode))
             episode += 1
-            state_n = env.reset(episode)
+            state_n = env.reset(episode, mess[1])
             conn.send(["reset:feedback", state_n])
         elif mess[0] == "render:on":
             env.turn_on_render()
@@ -66,7 +67,7 @@ class MultiAgentClient(MultiAgentEnv):
 
         server, self.client = Pipe()
         self.p = Process(target=engine_handler,
-                         args=(server, env_setup, scenario), name='group-{}'.format(client_id))
+                         args=(server, env_setup, scenario), name='group-{}-{}'.format(client_id, int(time.time())))
         client_id += 1
         self.p.start()
 
@@ -78,7 +79,7 @@ class MultiAgentClient(MultiAgentEnv):
             assert mess[0] == "render:on:feedback"
 
     def reset(self):
-        self.client.send(["reset:call"])
+        self.client.send(["reset:call", self._render])
         mess = self.client.recv()
 
         assert mess[0] == "reset:feedback"
