@@ -51,7 +51,7 @@ CONFIG_BACKUP = osp.join(BASE_DIR, "configs")
 env_config = utils.load_env_config(CONFIG_BACKUP, "simple_env_config.json")
 ```
 
-For more details on scenario configuration, please refer to [Scenario configuration](#)
+For more details on scenario configuration, please refer to [Scenario configuration](#scenario-configuration)
 
 
 **Generate environment**
