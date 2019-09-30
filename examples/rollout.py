@@ -47,7 +47,7 @@ if __name__ == "__main__":
     register_env(
         "sync_ds_env", lambda _: multiprocess_wrapper.MultiAgentClient(
             configs["observation_space"], configs["action_space"], list(configs["action_space"].keys()), configs["env_config"],
-            scenarios.load(configs["scenario"])(), max_step=args.max_step, render=True))
+            configs["scenario"], max_step=args.max_step, render=True))
 
     cls = get_agent_class(configs["run"])
     agents = cls(env='sync_ds_env', config=configs['ray_config'])
