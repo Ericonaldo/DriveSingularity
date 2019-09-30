@@ -116,7 +116,7 @@ if __name__ == "__main__":
         print("[INFO] training epoch: {}".format(epoch))
 
         trainer.train()
-        if (epoch + 1) % 1 == 0:
+        if (epoch + 1) % 20 == 0:
             trainer.save(checkpoint_dir=model_backup)
 
     print("[training finished]")
