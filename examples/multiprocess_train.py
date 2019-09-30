@@ -71,8 +71,8 @@ if __name__ == "__main__":
 
     ray_config = {
         "multiagent": {
-            "policies": policy_configs,
-            "policy_mapping_fn": utils.policy_mapping_fn("one_to_one" if not args.share else "share", map(str, agent_ids)),
+            "policies": None if args.share else policy_configs,
+            "policy_mapping_fn": None if args.share else utils.policy_mapping_fn("one_to_one"),
             "policies_to_train":
             None  # optional whitelist of policies to train, or None for all policies
         },
