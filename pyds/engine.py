@@ -141,6 +141,7 @@ class Environment(gym.Env):
         self._env.save_render()
 
     def close(self):
+        self._env.reset()
         del self._env
         self._env = None
 
