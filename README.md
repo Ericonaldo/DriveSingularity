@@ -28,11 +28,10 @@ cmake ..
 make
 cd ..
 ```
-**Step 3: install `pyds` and requirements for training**
+**Step 3: install `pyds`**
 
 ```shell script
 pip3 install .
-pip3 install -r requirements.txt
 ```
 
 ## Usage
