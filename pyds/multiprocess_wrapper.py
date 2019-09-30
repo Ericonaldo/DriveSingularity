@@ -57,8 +57,8 @@ def engine_handler(conn, env_setup, scenario):
 class MultiAgentClient(MultiAgentEnv):
     def __init__(self, observation_space, action_space, agents, env_setup,
                  scenario, max_step, render=False):
-        self._observation_space = observation_space
-        self._action_space = action_space
+        self.observation_space = observation_space
+        self.action_space = action_space
         self._agents = agents
         self._render = render
         self._max_step = max_step
