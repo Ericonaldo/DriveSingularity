@@ -45,3 +45,4 @@ cmake-build-debug
 *.pkl
 ds.egg-info
 venv
+build
