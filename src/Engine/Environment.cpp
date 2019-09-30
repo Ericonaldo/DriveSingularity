@@ -318,7 +318,7 @@ Observation Environment::getObservation(VehicleId vehicleId,
   for (const auto &v : adjacentVehicles) {
     int x = (int)((v->getPosition().getX() - minX) / Magnification),
         y = (int)((v->getPosition().getY() - minY) / Magnification);
-    assert(x >= 0 && x < viewLength && y >= 0 && y < viewWidth);
+    if (!(x >= 0 && x < viewLength && y >= 0 && y < viewWidth)) continue;
     observation[0][x][y] = 1.0;
     observation[1][x][y] = v->getVelocity() / control::MaxVelocity;
     observation[2][x][y] = wrapToPi(v->getRotation()) / 2 / Pi;
@@ -329,7 +329,7 @@ Observation Environment::getObservation(VehicleId vehicleId,
     bool continuous = line.second;
     if (std::abs(segment.getStart().getX() - segment.getEnd().getX()) < eps) {
       int x = (int)((segment.getStart().getX() - minX) / Magnification);
-      assert(x >= 0 && x < viewLength);
+      if (!(x >= 0 && x < viewLength)) continue;
       for (std::size_t y = 0; y < viewWidth; ++y) {
         if (!continuous && y % 4 >= 2)
           continue;
