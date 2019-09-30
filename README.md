@@ -37,7 +37,7 @@ pip3 install -r requirements.txt
 
 ## Usage
 
-**Load scenario**
+### Load scenario
 
 DriveSingularity supports custom scenario registration, so you need to load configuration from local scenario configuration file before generating environment. There is a default scenario configuration file locates at `DriveSingularity/configs/simple_env_config.json`.
 
@@ -54,7 +54,7 @@ env_config = utils.load_env_config(CONFIG_BACKUP, "simple_env_config.json")
 For more details on scenario configuration, please refer to [Scenario configuration](#scenario-configuration)
 
 
-**Generate environment**
+### Generate environment
 
 Environment generation requires only one command:
 
@@ -80,11 +80,11 @@ while not done:
     # ...
 ```
 
-**Learning with RLLib**
+### Learning with RLLib
 
 The default training support is [RLLib](https://ray.readthedocs.io/en/latest/rllib.html). To enable the interaction between engine and the training toolkit, we offer a multiprocess environment wrapper: `DriveSingularity/pyds/multiprocess_wrapper.py`, you can get more details from the training example: `DriveSingularity/examples/multiprocess_train.py`
 
-**Render: execute rollout.py**
+### Render: execute rollout.py
 
 After you have completed the training, you can execute the `examples/rollout.py` to get the render files, then you can use [DSRender](https://github.com/kornbergfresnel/DSRender) to replay the render files.
 
