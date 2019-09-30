@@ -72,44 +72,55 @@ std::shared_ptr<Terminal> RoadMapBuilder::makeTerminal(RoadId terminalId) {
 std::shared_ptr<Onramp> RoadMapBuilder::makeOnramp(RoadId onrampId) {
 	auto &linkedRoads = roadsAtOnramp.at(onrampId);
 
-	auto &road1 = roadsInfo.at(linkedRoads.at(1));
-	auto &road0 = roadsInfo.at(linkedRoads.at(0));
+  auto &road0 = roadsInfo.at(linkedRoads.at(0));
+  auto &road2 = roadsInfo.at(linkedRoads.at(2));
 
-	double halfLength;
-	if (road1.from == onrampId) {
-		halfLength = (road1.fromBottom - road1.fromTop).getLength() / 2.;
-	} else {
-		halfLength = (road1.toBottom - road1.toTop).getLength() / 2.;
-	}
+  std::array<VectorD, 4> anchors;
+  if (road0.to == onrampId) {
+    anchors[0] = road0.toTop;
+    anchors[1] = road0.toBottom;
+  } else {
+    assert(road0.from == onrampId);
+    anchors[0] = road0.fromBottom;
+    anchors[1] = road0.fromTop;
+  }
+  if (road2.from == onrampId) {
+    anchors[2] = road2.fromBottom;
+    anchors[3] = road2.fromTop;
+  } else {
+    assert(road2.to == onrampId);
+    anchors[2] = road2.toTop;
+    anchors[3] = road2.toBottom;
+  }
 
-	double halfWidth = road0.width / 2.;
-
-	auto& nodeInfo = nodesInfo.at(onrampId);
-
-	// rotate this Obb instance to match the neighboring roads
-	auto obb = Obb(halfLength, halfWidth, nodeInfo.position, nodeInfo.rotation);
-  return std::make_shared<Onramp>(onrampId, std::move(obb), linkedRoads);
+  return std::make_shared<Onramp>(onrampId, linkedRoads, anchors);
 }
 
 std::shared_ptr<Offramp> RoadMapBuilder::makeOfframp(RoadId offrampId) {
   auto &linkedRoads = roadsAtOfframp.at(offrampId);
 
-  auto &road1 = roadsInfo.at(linkedRoads.at(1));
   auto &road0 = roadsInfo.at(linkedRoads.at(0));
+  auto &road2 = roadsInfo.at(linkedRoads.at(2));
 
-  double halfLength;
-  if (road1.from == offrampId) {
-    halfLength = (road1.fromBottom - road1.fromTop).getLength() / 2.;
+  std::array<VectorD, 4> anchors;
+  if (road2.from == offrampId) {
+    anchors[0] = road2.fromTop;
+    anchors[1] = road2.fromBottom;
   } else {
-    halfLength = (road1.toBottom - road1.toTop).getLength() / 2.;
+    assert(road2.to == offrampId);
+    anchors[0] = road2.toBottom;
+    anchors[1] = road2.toTop;
+  }
+  if (road0.to == offrampId) {
+    anchors[2] = road0.toBottom;
+    anchors[3] = road0.toTop;
+  } else {
+    assert(road0.from == offrampId);
+    anchors[2] = road0.fromTop;
+    anchors[3] = road0.fromBottom;
   }
 
-  double halfWidth = road0.width / 2.;
-
-  auto& nodeInfo = nodesInfo.at(offrampId);
-
-  auto obb = Obb(halfLength, halfWidth, nodeInfo.position, nodeInfo.rotation);
-  return std::make_shared<Offramp>(offrampId, std::move(obb), linkedRoads);
+  return std::make_shared<Offramp>(offrampId, linkedRoads, anchors);
 }
 
 /**
@@ -257,6 +268,7 @@ void RoadMapBuilder::parseJSON(const std::string &filename) {
   if (!intersectionArray.isNull()) {
     for (auto &intersect : intersectionArray) {
       const NodeId id = intersect["id"].asInt64();
+      // TODO(yifan): ONRAMP and OFFRAMP don't need ROTATION and CENTER
       const double rotation = intersect["rotation"].asDouble();
       const auto center = intersect["center"];
 

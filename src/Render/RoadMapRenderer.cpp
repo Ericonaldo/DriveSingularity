@@ -49,10 +49,29 @@ void renderRoadMap(SDL_Window *window, SDL_Renderer *renderer,
   // roads
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
   for (auto &kv : roadMap.getRoads()) {
-  	if (roadMap.getRoads().at(kv.first)->getRoadType() != roadmap::RoadType::Straight) continue;
-    auto straight = roadMap.getRoad<roadmap::StraightRoad>(kv.first);
-    assert(straight);
-    renderStraightRoad(window, renderer, straight);
+    auto roadType = roadMap.getRoads().at(kv.first)->getRoadType();
+  	auto nodeType = roadMap.getRoads().at(kv.first)->getNodeType();
+    if (nodeType == roadmap::NodeType::Onramp) {
+      auto onramp = roadMap.getRoad<roadmap::Onramp>(kv.first);
+      assert(onramp);
+      auto anchors = onramp->getAnchors();
+      SDL_RenderDrawLine(renderer, anchors[0].getX(),
+              h - anchors[0].getY(), anchors[3].getX(),
+              h - anchors[3].getY());
+    } else if (nodeType == roadmap::NodeType::Offramp) {
+      auto offramp = roadMap.getRoad<roadmap::Offramp>(kv.first);
+      assert(offramp);
+      auto anchors = offramp->getAnchors();
+      SDL_RenderDrawLine(renderer, anchors[0].getX(),
+                         h - anchors[0].getY(), anchors[3].getX(),
+                         h - anchors[3].getY());
+    } else if (nodeType == roadmap::NodeType::Crossroads) {
+
+    } else if (roadType == roadmap::RoadType::Straight) {
+      auto straight = roadMap.getRoad<roadmap::StraightRoad>(kv.first);
+      assert(straight);
+      renderStraightRoad(window, renderer, straight);
+    }
   }
 
   // nodes

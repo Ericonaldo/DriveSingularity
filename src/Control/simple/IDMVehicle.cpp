@@ -3,6 +3,7 @@
 //
 #include "DriveSingularity/Control/simple/IDMVehicle.h"
 #include <iostream>
+#include <cassert>
 
 namespace ds {
 namespace control {
@@ -58,6 +59,7 @@ IDMVehicle::getDesiredGap(const std::shared_ptr<VehicleController> &frontVehicle
 double IDMVehicle::calculateAcc(const std::shared_ptr<VehicleController> &vehicle,
                                 bool front) {
   double acceleration = 0;
+//	std::cout << "IDM::calcaulate acc " << std::endl;
 
   if (front) {
     acceleration =
@@ -89,9 +91,15 @@ double IDMVehicle::calculateAcc(const std::shared_ptr<VehicleController> &vehicl
     VectorD barrierPos;
     if (road->getNodeType() == roadmap::NodeType::Onramp) {
       auto onramp = std::static_pointer_cast<roadmap::Onramp>(road);
-      auto res = onramp->needSlowDown(getLaneId().first);
-      needSlow = res.first;
-      barrierPos = res.second;
+      needSlow = onramp->needSlowDown(getLaneId().first);
+      if (needSlow) {
+        if (getLaneId().first == onramp->getLinkedRoads()[0]) {
+          barrierPos = getBarrierPositionOnStraightRoad();
+        } else {
+          assert(getLaneId().first == onramp->getLinkedRoads()[1]);
+          barrierPos = (onramp->getAnchors()[1] + onramp->getAnchors()[2]) / 2;
+        }
+      }
     } else if (road->getNodeType() == roadmap::NodeType::Offramp) {
       // there is no need to slow down at offramp
     } else if (road->getNodeType() == roadmap::NodeType::Crossroads) {
@@ -102,15 +110,7 @@ double IDMVehicle::calculateAcc(const std::shared_ptr<VehicleController> &vehicl
       needSlow = crossroads->needSlowDown(currentRoadId, nextRoadId);
       if (needSlow) {
         // calculate barrierPos
-        auto currentRoad = roadMap->getRoad<roadmap::StraightRoad>(getLaneId().first);
-        assert(currentRoad);
-        std::size_t laneIdx = getLaneId().second;
-        const auto &edges = currentRoad->getEdges();
-        if (currentRoad->getLanes().at(laneIdx).isReversed()) {
-          barrierPos = (edges.at(laneIdx).getStart() + edges.at(laneIdx + 1).getStart()) / 2;
-        } else {
-          barrierPos = (edges.at(laneIdx).getEnd() + edges.at(laneIdx + 1).getEnd()) / 2;
-        }
+        barrierPos = getBarrierPositionOnStraightRoad();
       }
     }
     if (needSlow) {
@@ -311,6 +311,7 @@ void IDMVehicle::pickLane() {
           getDesiredGap(std::dynamic_pointer_cast<VehicleController>(other));
 
       if (d > 0 && d < dStart) {
+//        std::cout << "cancel" << std::endl;
         setTargetLaneId(getLaneId());
       }
     }
@@ -346,6 +347,7 @@ void IDMVehicle::pickLane() {
 
     if (mobil(candidateLaneId)) { // use mobil algorithm to select a available
                                   // lane
+//      std::cout << "fuck" << std::endl;
       setTargetLaneId(candidateLaneId);
       break;
     }
@@ -353,14 +355,30 @@ void IDMVehicle::pickLane() {
 }
 
 void IDMVehicle::controlAccelerate() {
+//	std::cout << "IDM:control" << std::endl;
   auto vehicle = getFrontVehicle();
+//  std::cout << "IDM::control vehicle type: " << std::endl;
   setAcceleration(calculateAcc(vehicle, true));
 }
 
 void IDMVehicle::step(double dt) {
   followRoad();
   pickLane();
+//	controlSteering();
+//	controlAccelerate();
   VehicleController::step(dt);
+}
+
+VectorD IDMVehicle::getBarrierPositionOnStraightRoad() {
+  auto currentRoad = roadMap->getRoad<roadmap::StraightRoad>(getLaneId().first);
+  assert(currentRoad);
+  std::size_t laneIdx = getLaneId().second;
+  const auto &edges = currentRoad->getEdges();
+  if (currentRoad->getLanes().at(laneIdx).isReversed()) {
+    return (edges.at(laneIdx).getStart() + edges.at(laneIdx + 1).getStart()) / 2;
+  } else {
+    return (edges.at(laneIdx).getEnd() + edges.at(laneIdx + 1).getEnd()) / 2;
+  }
 }
 
 } // namespace control

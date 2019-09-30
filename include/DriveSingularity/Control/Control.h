@@ -102,6 +102,7 @@ private:
   bool crashed = false;
   bool outMap = false;
   VehicleType vehicleType;
+//  EventFlag::Type eventListening = EventFlag::None;
   std::unordered_set<EventFlag::Type> eventListening;
 
 protected:

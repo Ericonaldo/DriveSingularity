@@ -5,11 +5,11 @@
 #include "DriveSingularity/Math/Collision.h"
 #include "DriveSingularity/RoadMap/RoadMapBuilder.h"
 #include "DriveSingularity/RoadMap/Roads.h"
-#include <algorithm>
 #include <array>
-#include <climits>
 #include <iostream>
 #include <utility>
+#include <algorithm>
+#include <climits>
 
 namespace ds {
 namespace engine {
@@ -21,27 +21,24 @@ int Environment::loadGenerators(
 }
 
 void Environment::generateVehicles() {
-  if (vehicles.size() >= maxVehicle)
-    return;
-  // random add vehicles
-  static std::mt19937_64 eng(std::random_device{}());
-  std::shuffle(generators.begin(), generators.end(), eng);
-  for (const auto &generatorPoint : generators) {
-    const auto &position = generatorPoint.first;
-    double rotation = generatorPoint.second;
-    vehicleGenerator.gen();
-    double safeDis =
-        std::max(vehicleGenerator.halfLength, vehicleGenerator.halfWidth) * 10;
-    auto adjacentVehicles = getAdjacentVehicles(position, safeDis, safeDis);
-    if (adjacentVehicles.empty()) {
-      addVehicle<control::IDMVehicle>(
-          vehicleGenerator.halfLength, vehicleGenerator.halfWidth,
-          position.getX(), position.getY(), rotation, vehicleGenerator.velocity,
-          vehicleGenerator.targetVelocity);
+  if (vehicles.size() >= maxVehicle) return;
+// random add vehicles
+    static std::mt19937_64 eng(std::random_device{}());
+    std::shuffle(generators.begin(), generators.end(), eng);
+    for (const auto &generatorPoint: generators) {
+      const auto &position = generatorPoint.first;
+      double rotation = generatorPoint.second;
+      vehicleGenerator.gen();
+      double safeDis = std::max(vehicleGenerator.halfLength, vehicleGenerator.halfWidth)* 10;
+      auto adjacentVehicles = getAdjacentVehicles(position, safeDis, safeDis);
+      if (adjacentVehicles.empty()) {
+        addVehicle<control::IDMVehicle>(
+                vehicleGenerator.halfLength, vehicleGenerator.halfWidth, position.getX(),
+                position.getY(), rotation, vehicleGenerator.velocity,
+                vehicleGenerator.targetVelocity);
+      }
+      if (vehicles.size() == maxVehicle) break;
     }
-    if (vehicles.size() == maxVehicle)
-      break;
-  }
 }
 
 /**
@@ -121,10 +118,10 @@ void Environment::updateVehicleMap() {
     roadmap::LaneId oldLane = v->getLastLaneId();
     roadmap::LaneId curLane = v->getLaneId();
 
-    if (oldLane == curLane && v->isTerminate()) {
-      roadMap->getRoads().at(oldLane.first)->removeVehicle(kv.first);
-      continue;
-    }
+	  if (oldLane == curLane && v->isTerminate()) {
+		  roadMap->getRoads().at(oldLane.first)->removeVehicle(kv.first);
+		  continue;
+	  }
 
     auto oldRoad = roadMap->getRoads().at(oldLane.first);
 
@@ -135,8 +132,7 @@ void Environment::updateVehicleMap() {
     if (v->isTerminate()) {
       curRoad->removeVehicle(kv.first);
     } else {
-      if (curRoad->getNodeType() == roadmap::NodeType::Terminal)
-        continue;
+      if (curRoad->getNodeType() == roadmap::NodeType::Terminal) continue;
       curRoad->addVehicle(kv.first, kv.second);
     }
   }
@@ -146,10 +142,9 @@ bool Environment::isTerminal() const {
   if (epoch > MaxEpoch)
     return true;
 
-  for (auto id : agents) {
-    const auto &agent = vehicles.at(id);
-    if (agent->isTerminate())
-      return true;
+  for (auto id: agents) {
+      const auto& agent = vehicles.at(id);
+      if (agent->isTerminate()) return true;
   }
 
   return false;
@@ -174,8 +169,8 @@ bool Environment::step() {
   ++epoch;
 
   if (recordOn) {
-    logger.log(epoch, vehicles);
-    logger.log(roadMap->getRoads());
+      logger.log(epoch, vehicles);
+      logger.log(roadMap->getRoads());
   }
 
   // intersection control
@@ -183,55 +178,70 @@ bool Environment::step() {
 
   // vehicle control
   for (const auto &kv : vehicles) {
-    auto id = kv.first;
-    auto &vehicle = kv.second;
-    //    assert(vehicle);
-    auto oldGridPos = vehicleGridPos[id];
-    // vehicles execute and reward update
-    vehicle->step(dt);
+	  auto id = kv.first;
+	  auto &vehicle = kv.second;
+	  //    assert(vehicle);
+	  auto oldGridPos = vehicleGridPos[id];
+	  // vehicles execute and reward update
 
-    auto newGridPos = getGridPos(vehicle->getPosition());
+//    std::cout << "[DEBUG] 0" << std::endl;
+//	  std::cout << "[DEBUG] >>>>>>>>>>>> add social" << std::endl;
+	  vehicle->step(dt);
+//    std::cout << "[DEBUG] 1" << std::endl;
+//	  std::cout << "[DEBUG] <<<<<<<<<<< finish" << std::endl;
 
-    // remove vehicle on borderline.
-    auto lane = vehicle->getTargetLaneId();
-    auto &road = roadMap->getRoads().at(lane.first);
+	  auto newGridPos = getGridPos(vehicle->getPosition());
 
-    vehicle->setOutMap(checkOutMap(id));
-    if (road->getNodeType() == roadmap::NodeType::Terminal ||
-        vehicle->isOutMap()) {
-      if (vehicle->getVehicleType() != control::VehicleType::Agent) {
-        eraseVehicleId.emplace_back(id);
-      }
-      vehicleGrid[oldGridPos].erase(id);
-      vehicleGridPos.erase(id);
-    } else if (oldGridPos != newGridPos) {
-      vehicleGrid[oldGridPos].erase(id);
-      vehicleGridPos[id] = newGridPos;
-      vehicleGrid[newGridPos].emplace(id);
-    }
+	  // remove vehicle on borderline.
+	  auto lane = vehicle->getTargetLaneId();
+	  auto &road = roadMap->getRoads().at(lane.first);
+
+	  vehicle->setOutMap(checkOutMap(id));
+//    std::cout << "[DEBUG] 2" << std::endl;
+	  if (road->getNodeType() == roadmap::NodeType::Terminal ||
+	      vehicle->isOutMap()) {
+		  if (vehicle->getVehicleType() != control::VehicleType::Agent) {
+			  eraseVehicleId.emplace_back(id);
+		  }
+		  vehicleGrid[oldGridPos].erase(id);
+		  vehicleGridPos.erase(id);
+	  } else if (oldGridPos != newGridPos) {
+		  vehicleGrid[oldGridPos].erase(id);
+		  vehicleGridPos[id] = newGridPos;
+		  vehicleGrid[newGridPos].emplace(id);
+	  }
+//    std::cout << "[DEBUG] 3" << std::endl;
+
   }
 
-  for (const auto &kv : vehicles) {
+  for (const auto &kv: vehicles) {
     auto id = kv.first;
     const auto &v = kv.second;
     v->setCrash(checkCollision(id));
     if (v->isCrashed() && v->getVehicleType() != control::VehicleType::Agent) {
-      vehicleGrid[vehicleGridPos[id]].erase(id);
-      vehicleGridPos.erase(id);
-      eraseVehicleId.emplace_back(id);
+        vehicleGrid[vehicleGridPos[id]].erase(id);
+        vehicleGridPos.erase(id);
+        eraseVehicleId.emplace_back(id);
     }
   }
 
-  // update vehicle map
-  updateVehicleMap();
+//  std::cout << "[DEBUG] second loop" << std::endl;
 
-  for (auto k : eraseVehicleId) {
-    vehicles.erase(k);
-  }
+    // update vehicle map
+    updateVehicleMap();
+
+	for (auto k : eraseVehicleId) {
+		vehicles.erase(k);
+	}
+
+
+//  std::cout << "[DEBUG] third loop" << std::endl;
 
   for (auto id : agents) {
     events[id].emplace_back(evaluate(id));
   }
+
+//  std::cout << "[DEBUG] fourth loop" << std::endl;
 
   eraseVehicleId.clear();
 
@@ -242,8 +252,7 @@ std::vector<FeedBack>
 Environment::step(const std::unordered_map<VehicleId, std::size_t> &action) {
 
   for (const auto id : agents) {
-    auto vehicle =
-        std::dynamic_pointer_cast<control::AgentVehicle>(vehicles.at(id));
+    auto vehicle = std::dynamic_pointer_cast<control::AgentVehicle>(vehicles.at(id));
     vehicle->setAction(getAction(action.at(id)));
   }
 
@@ -251,21 +260,21 @@ Environment::step(const std::unordered_map<VehicleId, std::size_t> &action) {
 
   for (size_t t = 0; t < OperationInterval; ++t) {
     step();
-    if (isTerminal())
-      break;
+    if (isTerminal()) break;
   }
 
   std::vector<FeedBack> feedback;
 
-  for (auto &id : agents) {
-    auto &vehicle = vehicles.at(id);
+  for (auto &id: agents) {
+  	auto& vehicle = vehicles.at(id);
 
-    feedback.emplace_back(id, getObservation(id), vehicle->calculateReward(),
-                          vehicle->isTerminate(), events.at(id));
+    feedback.emplace_back(id, getObservation(id),
+                          vehicle->calculateReward(), vehicle->isTerminate(),
+                          events.at(id));
 
-    if (vehicle->isTerminate()) {
-      eraseVehicleId.emplace_back(id);
-    }
+	  if (vehicle->isTerminate()) {
+	  	eraseVehicleId.emplace_back(id);
+	  }
   }
 
   generateVehicles();
@@ -274,10 +283,10 @@ Environment::step(const std::unordered_map<VehicleId, std::size_t> &action) {
 
   // remove dead agents (collision)
   for (auto k : eraseVehicleId) {
-    vehicleGrid[vehicleGridPos[k]].erase(k);
-    vehicleGridPos.erase(k);
-    vehicles.erase(k);
-    agents.erase(k);
+      vehicleGrid[vehicleGridPos[k]].erase(k);
+      vehicleGridPos.erase(k);
+      vehicles.erase(k);
+      agents.erase(k);
   }
 
   eraseVehicleId.clear();
@@ -295,25 +304,28 @@ Observation Environment::getObservation(VehicleId vehicleId,
   std::size_t rangeLength = viewLength * Magnification,
               rangeWidth = viewWidth * Magnification;
 
-  auto adjacentVehicles = getAdjacentVehicles(center, rangeLength, rangeWidth);
-  auto involvedRoadLines = getInvolvedRoadLines(
+//    std::cout << "[DEBUG] ready to get vehicle observation" << std::endl;
+    auto adjacentVehicles =
+      getAdjacentVehicles(center, rangeLength, rangeWidth);
+//    std::cout << "[DEBUG] got observation" << std::endl;
+    auto involvedRoadLines = getInvolvedRoadLines(
       Obb(rangeLength / 2.0, rangeWidth / 2.0, vehicle->getPosition()));
 
-  static bool first = true;
-  static Observation observation;
-  if (first) {
-    std::vector<std::vector<double>> blank(viewLength,
-                                           std::vector<double>(viewWidth, 0.0));
-    observation.fill(blank);
-    first = false;
-  }
-  for (auto &a : observation) {
-    for (auto &b : a)
-      std::fill(b.begin(), b.end(), 0);
-  }
+    static bool first = true;
+    static Observation observation;
+    if (first) {
+      std::vector<std::vector<double>> blank(viewLength,
+          std::vector<double>(viewWidth, 0.0));
+      observation.fill(blank);
+      first = false;
+    }
+    for (auto & a : observation) {
+      for (auto & b : a)
+        std::fill(b.begin(), b.end(), 0);
+    }
 
-  double minX = center.getX() - rangeLength / 2.0,
-         minY = center.getY() - rangeWidth / 2.0;
+    double minX = center.getX() - rangeLength / 2.0,
+           minY = center.getY() - rangeWidth / 2.0;
 
   for (const auto &v : adjacentVehicles) {
     int x = (int)((v->getPosition().getX() - minX) / Magnification),
@@ -328,7 +340,7 @@ Observation Environment::getObservation(VehicleId vehicleId,
     const auto &segment = line.first;
     bool continuous = line.second;
     if (std::abs(segment.getStart().getX() - segment.getEnd().getX()) < eps) {
-      int x = (int)((segment.getStart().getX() - minX) / Magnification);
+      int x = (int) ((segment.getStart().getX() - minX) / Magnification);
       if (!(x >= 0 && x < viewLength)) continue;
       for (std::size_t y = 0; y < viewWidth; ++y) {
         if (!continuous && y % 4 >= 2)
@@ -339,23 +351,23 @@ Observation Environment::getObservation(VehicleId vehicleId,
       double slope = (segment.getEnd().getY() - segment.getStart().getY()) /
                      (segment.getEnd().getX() - segment.getStart().getX());
       for (std::size_t x = 0; x < viewLength; ++x) {
-        int y = (int)((slope * (minX + x * Magnification -
-                                segment.getStart().getX()) +
-                       segment.getStart().getY() - minY) /
-                      Magnification);
+        int y = (int) ((slope * (minX + x * Magnification -
+                                 segment.getStart().getX()) +
+                        segment.getStart().getY() - minY) /
+                       Magnification);
         if (y < 0 || y >= viewWidth)
           continue;
         observation[0][x][y] = 1.0;
       }
     }
   }
-
   return observation;
 }
 
 std::list<std::shared_ptr<control::VehicleController>>
 Environment::getAdjacentVehicles(const VectorD &center, double rangeLength,
                                  double rangeWidth) {
+//  std::cout << clock() << " " << "start" << std::endl;
   auto gridPos = getGridPos(center);
   std::list<std::shared_ptr<control::VehicleController>> adjacentVehicles;
 
@@ -383,6 +395,7 @@ Environment::getAdjacentVehicles(const VectorD &center, double rangeLength,
     return (l->getPosition() - center).getLength() <
            (r->getPosition() - center).getLength();
   });
+//  std::cout << clock() << " " << "end" << std::endl;
   return adjacentVehicles;
 }
 
@@ -455,58 +468,52 @@ Environment Environment::makeHighway() {
   return env;
 }
 
-void Environment::loadVehicles(
-    std::list<std::unordered_map<std::string, float>> &vehicles_config) {
+void Environment::loadVehicles(std::list<std::unordered_map<std::string, float>> &vehicles_config) {
 
   int n_agent = 0, n_social = 0;
 
-//  std::cout << "[DEBUG] Environment::loadVehicles n_agent: "
-//            << vehicles_config.size() << std::endl;
+  std::cout << "[DEBUG] Environment::loadVehicles n_agent: " << vehicles_config.size() << std::endl;
 
   static std::mt19937_64 eng(std::random_device{}());
   std::shuffle(generators.begin(), generators.end(), eng);
 
   auto count = std::min(generators.size(), vehicles_config.size());
-  // double safeDis = std::max(config.at("halfWidth"), config.at("halfLength"))
-  // * 5.0;
+      // double safeDis = std::max(config.at("halfWidth"), config.at("halfLength")) * 5.0;
   int i = 0;
-  for (auto &config : vehicles_config) {
-    const auto generatorPoint = generators.begin() + i;
+  for(auto& config: vehicles_config) {
+      const auto generatorPoint = generators.begin() + i;
 
-    const auto &position = generatorPoint->first;
-    double rotation = generatorPoint->second;
+      const auto &position = generatorPoint->first;
+      double rotation = generatorPoint->second;
 
-    config["rotation"] = rotation;
-    config["x"] = position.getX();
-    config["y"] = position.getY();
+      config["rotation"] = rotation;
+      config["x"] = position.getX();
+      config["y"] = position.getY();
 
-    if (int(config.at("type")) == control::VehicleType::Agent) {
-      VehicleId id = addVehicle<control::AgentVehicle>(config);
+      if (int(config.at("type")) == control::VehicleType::Agent) {
+          VehicleId id = addVehicle<control::AgentVehicle>(config);
 
-      switch (agentActionType) {
-      case control::ACTION_SPACE_TYPE::DISCRETE:
-        action_space.emplace(id, control::discrete::Action::Count);
-        break;
-      case control::ACTION_SPACE_TYPE::CONTINUOUS:
-      case control::ACTION_SPACE_TYPE::BUCKET:
-      default:
-        break;
+          switch (agentActionType) {
+              case control::ACTION_SPACE_TYPE::DISCRETE:
+                  action_space.emplace(id, control::discrete::Action::Count);
+                  break;
+              case control::ACTION_SPACE_TYPE::CONTINUOUS:
+              case control::ACTION_SPACE_TYPE::BUCKET:
+              default:
+                  break;
+          }
+
+          n_agent++;
+      } else if (int(config.at("type")) == control::VehicleType::Social) {
+          VehicleId id = addVehicle<control::IDMVehicle>(config);
+          if (id == ULONG_MAX) continue;
+          n_social++;
       }
 
-      n_agent++;
-    } else if (int(config.at("type")) == control::VehicleType::Social) {
-      VehicleId id = addVehicle<control::IDMVehicle>(config);
-      if (id == ULONG_MAX)
-        continue;
-      n_social++;
-    }
-
-    if (++i >= count)
-      break;
+      if (++i >= count) break;
   }
 
-//  std::cout << "[DEBUG] Environment::loadVehicles real n_agent: " << n_agent
-//            << std::endl;
+  std::cout << "[DEBUG] Environment::loadVehicles real n_agent: " << n_agent << std::endl;
 }
 
 EventContainer Environment::evaluate(VehicleId vehicleId) const {
@@ -518,94 +525,81 @@ EventContainer Environment::evaluate(VehicleId vehicleId) const {
                        return res;
                      }),
       std::make_pair(EventFlag::MaxSpeed,
-                     [vehicleId, this]() -> Json::Value {
-                       Json::Value res;
-                       const auto &vehicle = vehicles.at(vehicleId);
-                       // TODO(ming): fit to road speed limit
-                       res["value"] =
-                           vehicle->getVelocity() / control::MaxVelocity;
-                       return res;
-                     }),
-      std::make_pair(
-          EventFlag::IllegalDirection,
-          [vehicleId, this]() -> Json::Value {
-            Json::Value res;
-            const auto &vehicle = vehicles.at(vehicleId);
+              [vehicleId, this]() -> Json::Value {
+          Json::Value res;
+          const auto& vehicle = vehicles.at(vehicleId);
+          // TODO(ming): fit to road speed limit
+          res["value"] = vehicle->getVelocity() / control::MaxVelocity;
+          return res;
+      }),
+      std::make_pair(EventFlag::IllegalDirection,
+              [vehicleId, this]() -> Json::Value {
+          Json::Value res;
+          const auto& vehicle = vehicles.at(vehicleId);
 
-            // get current lane direction
-            auto curLane = vehicle->getLaneId();
-            if (roadMap->getRoads().at(curLane.first)->getRoadType() ==
-                roadmap::RoadType::Straight) {
-              const auto &road =
-                  roadMap->getRoad<roadmap::StraightRoad>(curLane.first);
-              const auto &lane = road->getLanes().at(curLane.second);
+          // get current lane direction
+          auto curLane = vehicle->getLaneId();
+          if (roadMap->getRoads().at(curLane.first)->getRoadType() == roadmap::RoadType::Straight) {
+          	const auto& road = roadMap->getRoad<roadmap::StraightRoad>(curLane.first);
+          	const auto& lane = road->getLanes().at(curLane.second);
+          	
+          	VectorD laneDir;
+          	Segment axis = road->getLaneAxis(curLane.second);
+          	if (lane.isReversed()) {
+          		laneDir = axis.getStart() - axis.getEnd();
+          	} else laneDir = axis.getEnd() - axis.getStart();
+          	
+          	VectorD myDir = VectorD(std::cos(vehicle->getRotation()), std::sin(vehicle->getRotation()));
+          	
+          	res["value"] = dot(myDir, laneDir) <= 0.0;
+          } else res["value"] = false;
+          return res;
+      }),
+      std::make_pair(EventFlag::Follow,
+              [vehicleId, this]() -> Json::Value {
+          Json::Value res;
+          const auto& vehicle = vehicles.at(vehicleId);
+          auto curLane = vehicle->getLaneId();
+          if (roadMap->getRoads().at(curLane.first)->getRoadType() == roadmap::RoadType::Straight) {
+	          auto road = roadMap->getRoad<roadmap::StraightRoad>(curLane.first);
+	          const auto &lane = road->getLanes().at(curLane.second);
 
-              VectorD laneDir;
-              Segment axis = road->getLaneAxis(curLane.second);
-              if (lane.isReversed()) {
-                laneDir = axis.getStart() - axis.getEnd();
-              } else
-                laneDir = axis.getEnd() - axis.getStart();
+	          VectorD laneDir;
+	          Segment axis = road->getLaneAxis(curLane.second);
+	          if (lane.isReversed()) {
+		          laneDir = axis.getStart() - axis.getEnd();
+	          } else laneDir = axis.getEnd() - axis.getStart();
 
-              VectorD myDir = VectorD(std::cos(vehicle->getRotation()),
-                                      std::sin(vehicle->getRotation()));
-
-              res["value"] = dot(myDir, laneDir) <= 0.0;
-            } else
-              res["value"] = false;
-            return res;
-          }),
-      std::make_pair(
-          EventFlag::Follow,
-          [vehicleId, this]() -> Json::Value {
-            Json::Value res;
-            const auto &vehicle = vehicles.at(vehicleId);
-            auto curLane = vehicle->getLaneId();
-            if (roadMap->getRoads().at(curLane.first)->getRoadType() ==
-                roadmap::RoadType::Straight) {
-              auto road =
-                  roadMap->getRoad<roadmap::StraightRoad>(curLane.first);
-              const auto &lane = road->getLanes().at(curLane.second);
-
-              VectorD laneDir;
-              Segment axis = road->getLaneAxis(curLane.second);
-              if (lane.isReversed()) {
-                laneDir = axis.getStart() - axis.getEnd();
-              } else
-                laneDir = axis.getEnd() - axis.getStart();
-
-              VectorD myDir = VectorD(std::cos(vehicle->getRotation()),
-                                      std::sin(vehicle->getRotation()));
-
-              res["value"] = cos(myDir, laneDir);
-            } else
-              res["value"] = 1.;
-
-            return res;
-          }),
+	          VectorD myDir = VectorD(std::cos(vehicle->getRotation()), std::sin(vehicle->getRotation()));
+	          
+	          res["value"] = cos(myDir, laneDir);
+          } else res["value"] = 1.;
+          
+          return res;
+      }),
       std::make_pair(EventFlag::SwitchLane,
-                     [vehicleId, this]() -> Json::Value {
-                       Json::Value res;
-                       const auto &vehicle = vehicles.at(vehicleId);
-                       auto lastLane = vehicle->getLastLaneId();
-                       auto curLane = vehicle->getLaneId();
+      		[vehicleId, this]() -> Json::Value {
+      	Json::Value res;
+      	const auto& vehicle = vehicles.at(vehicleId);
+      	auto lastLane = vehicle->getLastLaneId();
+      	auto curLane = vehicle->getLaneId();
 
-                       if (lastLane.first == curLane.first) {
-                         res["value"] = (lastLane.second != curLane.second);
-                       } else
-                         res["value"] = false;
+      	if (lastLane.first == curLane.first) {
+      		res["value"] = (lastLane.second != curLane.second);
+      	} else res["value"] = false;
 
-                       return res;
-                     }),
+      	return res;
+      }),
       std::make_pair(EventFlag::OverSolidLine,
-                     [vehicleId, this]() -> Json::Value {
-                       Json::Value res;
-                       const auto &vehicle = vehicles.at(vehicleId);
-
-                       // TODO(ming): check whether oversolidline
-                       res["value"] = false;
-                       return res;
-                     })};
+              [vehicleId, this]() -> Json::Value {
+          Json::Value res;
+          const auto& vehicle = vehicles.at(vehicleId);
+          
+          // TODO(ming): check whether oversolidline
+          res["value"] = false;
+          return res;
+      })
+  };
 
   auto v = vehicles.at(vehicleId);
   auto eventMaskVector = v->getEventListening();
@@ -623,7 +617,7 @@ EventContainer Environment::evaluate(VehicleId vehicleId) const {
 bool Environment::checkOutMap(ds::VehicleId vehicleId) const {
   const auto &v = vehicles.at(vehicleId);
   return v->getX() < anchor1.getX() || v->getY() < anchor1.getY() ||
-         v->getX() > anchor2.getX() || v->getY() > anchor2.getY();
+            v->getX() > anchor2.getX() || v->getY() > anchor2.getY();
 }
 
 bool Environment::checkCollision(VehicleId vehicleId) const {
@@ -672,9 +666,9 @@ void Environment::updateAnchor2(const VectorD &anchor) {
       std::max(Environment::anchor2.getY(), anchor.getY());
 }
 
-void Environment::setMaxVehicle(size_t maxVehicle) {
-  Environment::maxVehicle = maxVehicle;
-}
+  void Environment::setMaxVehicle(size_t maxVehicle) {
+    Environment::maxVehicle = maxVehicle;
+  }
 
 } // namespace engine
 } // namespace ds

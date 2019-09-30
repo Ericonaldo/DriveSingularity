@@ -1,7 +1,7 @@
 {
     "world": "configs/resources/osm.json",
     "render_dir": "render/osm",
-    "n_agents": 20,
+    "n_agents": 2,
     "total_vehicles": 40,
     "length_range": [15, 1],
     "width_range": [8, 1],

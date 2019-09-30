@@ -131,56 +131,40 @@ int Crossroads::getRoadIdx(ds::roadmap::RoadId id) const {
       return i;
     }
   }
+//  std::cout << "ooops" << std::endl;
   assert(false);
 }
 
 bool Onramp::onRoad(const ds::VectorD &position) const {
-	// get linked road
-	const auto& block = getObb();
-//	return block.inBox(position);
-	auto roadCoord = position - block.getPosition();
-	auto wVec = obb.getWidVec();
-	auto lenVec = obb.getLenVec();
-
-	double w = project(roadCoord, wVec / 2.);
-	double h = project(roadCoord, lenVec / 2.);
-
-	return std::abs(w) <= block.getHalfWidth() && std::abs(h) <= block.getHalfLength();
+  if (cross(anchors[3] - anchors[0], position - anchors[0]) *
+      cross(anchors[2] - anchors[1], position - anchors[1]) > eps)
+    return false;
+  return cross(anchors[3] - anchors[2], position - anchors[2]) *
+         cross(anchors[0] - anchors[1], position - anchors[1]) < eps;
 }
 
 // TODO(yifan): I think locate only makes sense in StraightRoad
 LaneId Onramp::locate(const ds::VectorD &position) const {
-	return std::make_pair(getId(), 0);
+	assert(false);
+}
+
+bool Onramp::needSlowDown(roadmap::RoadId from) const {
+  return (from == roads[0] && counter[1] != 0) || (from == roads[1] && counter[0] != 0);
 }
 
 // TODO(yifan): need improving. same as Onramp::onRoad
 bool Offramp::onRoad(const ds::VectorD &position) const {
-  // get linked road
-  const auto& block = getObb();
-//	return block.inBox(position);
-  auto roadCoord = position - block.getPosition();
-  auto wVec = obb.getWidVec();
-  auto lenVec = obb.getLenVec();
-
-  double w = project(roadCoord, wVec / 2.);
-  double h = project(roadCoord, lenVec / 2.);
-
-  return std::abs(w) <= block.getHalfWidth() && std::abs(h) <= block.getHalfLength();
+  if (cross(anchors[2] - anchors[1], position - anchors[1]) *
+      cross(anchors[3] - anchors[0], position - anchors[0]) > eps)
+    return false;
+  return cross(anchors[2] - anchors[3], position - anchors[3]) *
+         cross(anchors[1] - anchors[0], position - anchors[0]) < eps;
 }
 
 LaneId Offramp::locate(const ds::VectorD &position) const {
   assert(false);
 }
 
-std::pair<bool, VectorD> Onramp::needSlowDown(roadmap::RoadId from) const {
-  if ((from == roads[2]) || (from == roads[0] && counter[1] != 0)
-    || (from == roads[1] && counter[0] != 0)) {
-    const auto &obb = getObb();
-    return std::make_pair(true, obb.getPosition() - obb.getWidVec() / 2);
-  } else {
-    return std::make_pair(false, VectorD());
-  }
-}
 
 } // namespace roadmap
 } // namespace ds
