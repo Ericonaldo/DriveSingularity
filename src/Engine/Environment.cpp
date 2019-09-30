@@ -327,40 +327,41 @@ Observation Environment::getObservation(VehicleId vehicleId,
     double minX = center.getX() - rangeLength / 2.0,
            minY = center.getY() - rangeWidth / 2.0;
 
-    for (const auto& v : adjacentVehicles) {
-      int x = (int)((v->getPosition().getX() - minX) / Magnification),
-          y = (int)((v->getPosition().getY() - minY) / Magnification);
-      assert(x >= 0 && x < viewLength && y >= 0 && y < viewWidth);
-      observation[0][x][y] = 1.0;
-      observation[1][x][y] = v->getVelocity() / control::MaxVelocity;
-      observation[2][x][y] = wrapToPi(v->getRotation()) / 2 / Pi;
-    }
+  for (const auto &v : adjacentVehicles) {
+    int x = (int)((v->getPosition().getX() - minX) / Magnification),
+        y = (int)((v->getPosition().getY() - minY) / Magnification);
+    if (!(x >= 0 && x < viewLength && y >= 0 && y < viewWidth)) continue;
+    observation[0][x][y] = 1.0;
+    observation[1][x][y] = v->getVelocity() / control::MaxVelocity;
+    observation[2][x][y] = wrapToPi(v->getRotation()) / 2 / Pi;
+  }
 
-    for (const auto& line : involvedRoadLines) {
-      const auto &segment = line.first;
-      bool continuous = line.second;
-      if (std::abs(segment.getStart().getX() - segment.getEnd().getX()) < eps) {
-        int x = (int)((segment.getStart().getX() - minX) / Magnification);
-        assert(x >= 0 && x < viewLength);
-        for (std::size_t y = 0; y < viewWidth; ++y) {
-          if (!continuous && y % 4 >= 2)
-            continue;
-          observation[0][x][y] = 1.0;
-        }
-      } else {
-        double slope = (segment.getEnd().getY() - segment.getStart().getY()) /
-            (segment.getEnd().getX() - segment.getStart().getX());
-        for (std::size_t x = 0; x < viewLength; ++x) {
-          int y = (int)((slope * (minX + x * Magnification - segment.getStart().getX()) +
-              segment.getStart().getY() - minY) / Magnification);
-          if (y < 0 || y >= viewWidth)
-            continue;
-          observation[0][x][y] = 1.0;
-        }
+  for (const auto &line : involvedRoadLines) {
+    const auto &segment = line.first;
+    bool continuous = line.second;
+    if (std::abs(segment.getStart().getX() - segment.getEnd().getX()) < eps) {
+      int x = (int) ((segment.getStart().getX() - minX) / Magnification);
+      if (!(x >= 0 && x < viewLength)) continue;
+      for (std::size_t y = 0; y < viewWidth; ++y) {
+        if (!continuous && y % 4 >= 2)
+          continue;
+        observation[0][x][y] = 1.0;
+      }
+    } else {
+      double slope = (segment.getEnd().getY() - segment.getStart().getY()) /
+                     (segment.getEnd().getX() - segment.getStart().getX());
+      for (std::size_t x = 0; x < viewLength; ++x) {
+        int y = (int) ((slope * (minX + x * Magnification -
+                                 segment.getStart().getX()) +
+                        segment.getStart().getY() - minY) /
+                       Magnification);
+        if (y < 0 || y >= viewWidth)
+          continue;
+        observation[0][x][y] = 1.0;
       }
     }
-
-    return observation;
+  }
+  return observation;
 }
 
 std::list<std::shared_ptr<control::VehicleController>>
