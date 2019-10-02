@@ -1,0 +1,96 @@
+{
+  "roads": [
+    {"id": 6, "type": "straight", "from": 1, "to": 5, "width": 320,
+      "ft": [-200, 1160], "fb":  [-200, 840], "tt":  [820, 1160], "tb": [820, 840],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": false, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": false,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": false, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 7, "type": "straight", "from": 2, "to": 5, "width": 320,
+      "ft": [840, -220], "fb":  [1160, -220], "tt":  [840, 820], "tb": [1160, 820],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": false, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": false,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": false, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 8, "type": "straight", "from": 3, "to": 5, "width": 320,
+      "ft": [2200, 840], "fb":  [2200, 1160], "tt":  [1180, 840], "tb": [1180, 1160],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": false, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": false,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": false, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 9, "type": "straight", "from": 4, "to": 5, "width": 320,
+      "ft": [1160, 2200], "fb":  [840, 2200], "tt":  [1160, 1180], "tb": [840, 1180],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": false, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": false,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": false, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    }
+  ],
+
+  "intersections": [
+    {"id": 1, "type": "terminal", "linkedRoad": 6},
+    {"id": 2, "type": "terminal", "linkedRoad": 7},
+    {"id": 3, "type": "terminal", "linkedRoad": 8},
+    {"id": 4, "type": "terminal", "linkedRoad": 9},
+    {"id": 5, "type": "crossroad", "linkedRoads": [6, 7, 8, 9]}
+  ]
+}

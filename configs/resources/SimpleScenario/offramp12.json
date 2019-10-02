@@ -1,0 +1,62 @@
+{
+  "roads": [
+    {
+      "id": 5, "type": "straight", "from": 1, "to": 4, "width": 80,
+      "ft": [-200, 1040], "fb": [-200, 960], "tt": [990.56, 1040], "tb": [990.56, 960],
+      "lanes": [
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 6, "type": "straight", "from": 2, "to": 4, "width": 80,
+      "ft": [2200, 355.28], "fb": [2200, 444.72], "tt": [990.56, 960], "tb": [1169.44, 960],
+      "lanes": [
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 7, "type": "straight", "from": 4, "to": 3, "width": 80,
+      "ft": [1169.44, 1040], "fb": [1169.44, 960], "tt": [2200, 1040], "tb": [2200, 960],
+      "lanes": [
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        }
+      ]
+    }
+  ],
+
+  "intersections": [
+    {
+      "id": 1, "type": "terminal", "linkedRoad": 5
+    },
+    {
+      "id": 2, "type": "terminal", "linkedRoad": 6
+    },
+    {
+      "id": 3, "type": "terminal", "linkedRoad": 7
+    },
+    {
+      "id": 4, "type": "offramp", "linkedRoads": [5, 6, 7]
+    }
+  ]
+}
+

@@ -1,0 +1,106 @@
+{
+  "roads": [
+    {
+      "id": 5, "type": "straight", "from": 1, "to": 4, "width": 320,
+      "ft": [-200, 1160], "fb": [-200, 840], "tt": [635.28, 1160], "tb": [635.28, 840],
+      "lanes": [
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 6, "type": "straight", "from": 2, "to": 4, "width": 40,
+      "ft": [-200, 422.36], "fb": [-200, 377.64], "tt": [635.28, 840], "tb": [724.72, 840],
+      "lanes": [
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 7, "type": "straight", "from": 4, "to": 3, "width": 320,
+      "ft": [724.72, 1160], "fb": [724.72, 840], "tt": [2200, 1160], "tb": [2200, 840],
+      "lanes": [
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        }
+      ]
+    }
+  ],
+
+  "intersections": [
+    {
+      "id": 1, "type": "terminal", "linkedRoad": 5
+    },
+    {
+      "id": 2, "type": "terminal", "linkedRoad": 6
+    },
+    {
+      "id": 3, "type": "terminal", "linkedRoad": 7
+    },
+    {
+      "id": 4, "type": "onramp", "linkedRoads": [5, 6, 7]
+    }
+  ]
+}
+
