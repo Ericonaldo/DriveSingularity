@@ -1,0 +1,58 @@
+{
+  "roads": [
+    {
+      "id": 5, "type": "straight", "from": 1, "to": 4, "width": 80,
+      "ft": [-200, 1040], "fb": [-200, 960], "tt": [1035.28, 1040], "tb": [1035.28, 960],
+      "lanes": [
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 6, "type": "straight", "from": 2, "to": 4, "width": 40,
+      "ft": [2200, 377.64], "fb": [2200, 422.36], "tt": [1035.28, 960], "tb": [1124.72, 960],
+      "lanes": [
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 7, "type": "straight", "from": 4, "to": 3, "width": 80,
+      "ft": [1124.72, 1040], "fb": [1124.72, 960], "tt": [2200, 1040], "tb": [2200, 960],
+      "lanes": [
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        }
+      ]
+    }
+  ],
+
+  "intersections": [
+    {
+      "id": 1, "type": "terminal", "linkedRoad": 5
+    },
+    {
+      "id": 2, "type": "terminal", "linkedRoad": 6
+    },
+    {
+      "id": 3, "type": "terminal", "linkedRoad": 7
+    },
+    {
+      "id": 4, "type": "offramp", "linkedRoads": [5, 6, 7]
+    }
+  ]
+}
+

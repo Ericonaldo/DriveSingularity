@@ -1,0 +1,22 @@
+{
+  "roads": [
+    {"id": 2, "type": "straight", "from": 1, "to": 3, "width": 160,
+      "ft": [-200, 380], "fb":  [-200, 220], "tt":  [2200, 380], "tb": [2200, 220],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"},
+        {"reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"}
+      ]
+    }
+  ],
+
+  "intersections": [
+    {"id": 1, "type": "terminal", "linkedRoad": 2},
+    {"id": 3, "type": "terminal", "linkedRoad": 2}
+  ]
+}

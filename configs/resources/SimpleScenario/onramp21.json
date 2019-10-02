@@ -1,0 +1,74 @@
+{
+  "roads": [
+    {
+      "id": 5, "type": "straight", "from": 1, "to": 4, "width": 160,
+      "ft": [-200, 1080], "fb": [-200, 920], "tt": [795.28, 1080], "tb": [795.28, 920],
+      "lanes": [
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 6, "type": "straight", "from": 2, "to": 4, "width": 40,
+      "ft": [-200, 422.36], "fb": [-200, 377.64], "tt": [795.28, 920], "tb": [884.72, 920],
+      "lanes": [
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        }
+      ]
+    },
+    {
+      "id": 7, "type": "straight", "from": 4, "to": 3, "width": 160,
+      "ft": [884.72, 1080], "fb": [884.72, 920], "tt": [2200, 1080], "tb": [2200, 920],
+      "lanes": [
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        },
+        {
+          "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "continuous"
+        }
+      ]
+    }
+  ],
+
+  "intersections": [
+    {
+      "id": 1, "type": "terminal", "linkedRoad": 5
+    },
+    {
+      "id": 2, "type": "terminal", "linkedRoad": 6
+    },
+    {
+      "id": 3, "type": "terminal", "linkedRoad": 7
+    },
+    {
+      "id": 4, "type": "onramp", "linkedRoads": [5, 6, 7]
+    }
+  ]
+}
+

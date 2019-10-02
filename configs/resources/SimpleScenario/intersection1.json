@@ -1,0 +1,48 @@
+{
+  "roads": [
+    {"id": 6, "type": "straight", "from": 1, "to": 5, "width": 80,
+      "ft": [-200, 1040], "fb":  [-200, 960], "tt":  [950, 1040], "tb": [950, 960],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 7, "type": "straight", "from": 2, "to": 5, "width": 80,
+      "ft": [960, -220], "fb":  [1040, -220], "tt":  [960, 950], "tb": [1040, 950],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 8, "type": "straight", "from": 3, "to": 5, "width": 80,
+      "ft": [2200, 960], "fb":  [2200, 1040], "tt":  [1050, 960], "tb": [1050, 1040],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 9, "type": "straight", "from": 4, "to": 5, "width": 80,
+      "ft": [1040, 2200], "fb":  [960, 2200], "tt":  [1040, 1050], "tb": [960, 1050],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    }
+  ],
+
+  "intersections": [
+    {"id": 1, "type": "terminal", "linkedRoad": 6},
+    {"id": 2, "type": "terminal", "linkedRoad": 7},
+    {"id": 3, "type": "terminal", "linkedRoad": 8},
+    {"id": 4, "type": "terminal", "linkedRoad": 9},
+    {"id": 5, "type": "crossroad", "linkedRoads": [6, 7, 8, 9]}
+  ]
+}
