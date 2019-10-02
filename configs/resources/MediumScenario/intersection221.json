@@ -1,0 +1,127 @@
+{
+  "roads": [
+    {"id": 13, "type": "straight", "from": 1, "to": 2, "width": 80,
+      "ft": [1040, 1950], "fb":  [960, 1950], "tt":  [1040, 1050], "tb": [960, 1050],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 14, "type": "straight", "from": 2, "to": 3, "width": 80,
+      "ft": [1050, 1040], "fb":  [1050, 960], "tt":  [1950, 1040], "tb": [1950, 960],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 15, "type": "straight", "from": 3, "to": 4, "width": 80,
+      "ft": [1960, 1050], "fb":  [2040, 1050], "tt":  [1960, 1950], "tb": [2040, 1950],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 16, "type": "straight", "from": 4, "to": 1, "width": 80,
+      "ft": [1950, 1960], "fb":  [1950, 2040], "tt":  [1050, 1960], "tb": [1050, 2040],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 17, "type": "straight", "from": 5, "to": 1, "width": 80,
+      "ft": [-200, 2040], "fb":  [-200, 1960], "tt":  [950, 2040], "tb": [950, 1960],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 18, "type": "straight", "from": 6, "to": 2, "width": 80,
+      "ft": [-200, 1040], "fb":  [-200, 960], "tt":  [950, 1040], "tb": [950, 960],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 19, "type": "straight", "from": 7, "to": 2, "width": 80,
+      "ft": [960, -200], "fb":  [1040, -200], "tt":  [960, 950], "tb": [1040, 950],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 20, "type": "straight", "from": 8, "to": 3, "width": 80,
+      "ft": [1960, -200], "fb":  [2040, -200], "tt":  [1960, 950], "tb": [2040, 950],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 21, "type": "straight", "from": 9, "to": 3, "width": 80,
+      "ft": [3200, 960], "fb":  [3200, 1040], "tt":  [2050, 960], "tb": [2050, 1040],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 22, "type": "straight", "from": 10, "to": 4, "width": 80,
+      "ft": [3200, 1960], "fb":  [3200, 2040], "tt":  [2050, 1960], "tb": [2050, 2040],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 23, "type": "straight", "from": 11, "to": 4, "width": 80,
+      "ft": [2040, 3200], "fb":  [1960, 3200], "tt":  [2040, 2050], "tb": [1960, 2050],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    },
+    {"id": 24, "type": "straight", "from": 12, "to": 1, "width": 80,
+      "ft": [1040, 3200], "fb":  [960, 3200], "tt":  [1040, 2050], "tb": [960, 2050],
+      "lanes": [
+        {"reverse": true, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "continuous", "rightLine": "striped"},
+        {"reverse": false, "goStraight": true, "turnLeft": true, "turnRight": true,
+          "turnRound": false, "leftLine": "striped", "rightLine": "striped"}
+      ]
+    }
+  ],
+
+  "intersections": [
+    {"id": 1, "type": "crossroad", "linkedRoads": [17, 13, 16, 24]},
+    {"id": 2, "type": "crossroad", "linkedRoads": [18, 19, 14, 13]},
+    {"id": 3, "type": "crossroad", "linkedRoads": [14, 20, 21, 15]},
+    {"id": 4, "type": "crossroad", "linkedRoads": [16, 15, 22, 23]},
+    {"id": 5, "type": "terminal", "linkedRoad": 17},
+    {"id": 6, "type": "terminal", "linkedRoad": 18},
+    {"id": 7, "type": "terminal", "linkedRoad": 19},
+    {"id": 8, "type": "terminal", "linkedRoad": 20},
+    {"id": 9, "type": "terminal", "linkedRoad": 21},
+    {"id": 10, "type": "terminal", "linkedRoad": 22},
+    {"id": 11, "type": "terminal", "linkedRoad": 23},
+    {"id": 12, "type": "terminal", "linkedRoad": 24}
+  ]
+}
