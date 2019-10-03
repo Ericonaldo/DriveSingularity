@@ -255,10 +255,10 @@
   ],
 
   "intersections": [
-    {"id": 1, "type": "crossroad", "linkedRoads": [17, 13, 16, 24]},
-    {"id": 2, "type": "crossroad", "linkedRoads": [18, 19, 14, 13]},
-    {"id": 3, "type": "crossroad", "linkedRoads": [14, 20, 21, 15]},
-    {"id": 4, "type": "crossroad", "linkedRoads": [16, 15, 22, 23]},
+    {"id": 1, "type": "crossroad", "linkedRoads": [17, 13, 16, 24], "center": [1000, 2000]},
+    {"id": 2, "type": "crossroad", "linkedRoads": [18, 19, 14, 13], "center": [1000, 1000]},
+    {"id": 3, "type": "crossroad", "linkedRoads": [14, 20, 21, 15], "center": [2000, 1000]},
+    {"id": 4, "type": "crossroad", "linkedRoads": [16, 15, 22, 23], "center": [2000, 2000]},
     {"id": 5, "type": "terminal", "linkedRoad": 17},
     {"id": 6, "type": "terminal", "linkedRoad": 18},
     {"id": 7, "type": "terminal", "linkedRoad": 19},
