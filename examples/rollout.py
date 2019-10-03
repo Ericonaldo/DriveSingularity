@@ -43,15 +43,17 @@ if __name__ == "__main__":
         configs = pickle.load(f)
 
     ray.init()
+    env_config = configs['ray_config']['env_config']  # ['env_name']
+    env_config['render'] = True  # turn on render mode
+    env_name = env_config['env_setup']['env_name']
 
     register_env(
-        "sync_ds_env", lambda _: multiprocess_wrapper.MultiAgentClient(
-            configs["observation_space"], configs["action_space"], list(configs["action_space"].keys()), configs["env_config"],
-            configs["scenario"], max_step=args.max_step, render=True))
+        env_name, lambda kwargs: multiprocess_wrapper.MultiAgentClient(
+            **kwargs))
 
     cls = get_agent_class(configs["run"])
-    agents = cls(env='sync_ds_env', config=configs['ray_config'])
+    agents = cls(env=env_name, config=configs['ray_config'])
     agents.restore(args.checkpoint)
 
-    rollout(agents, 'sync_ds_env', args.max_step, args.out)
+    rollout(agents, env_name, args.max_step, args.out)
     agents.stop()

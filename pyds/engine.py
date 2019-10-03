@@ -54,9 +54,10 @@ class Environment(gym.Env):
         )
 
         # TODO(ming): initialize render and agents
-        env_setup['render_dir'] = osp.join(BASEDIR, env_setup['render_dir'])
-        self._env.set_render(env_setup['render_dir'])
-        print("[DEBUG] render locates: {}".format(env_setup['render_dir']))
+        # env_setup['render_dir'] = osp.join(BASEDIR, env_setup['render_dir'])
+        # self._envs.set_render(osp.join(BASEDIR))
+        # self._env.set_render(env_setup['render_dir'])
+        # print("[DEBUG] render locates: {}".format(env_setup['render_dir']))
 
         # TODO(ming): create generators for social vehicles
         # self._env.load_generator(env_setup["generators"])
@@ -91,11 +92,13 @@ class Environment(gym.Env):
     def reset(self, episode=None, render=False):
         self._env.reset()
 
-        sub_dir = osp.join(self._env_setup['render_dir'], str(episode))
+        sub_dir = osp.join(BASEDIR, self._env_setup['render_dir'], str(episode))
 
         if not osp.exists(sub_dir) and render:
             os.makedirs(sub_dir)
             self._env.set_render(sub_dir)
+            print("[DEBUG] render locates: {}".format(sub_dir))
+
 
         self._env.load_vehicles(self._env_setup["agents"])
         assert len(self._env.agents()) > 0
@@ -126,9 +129,6 @@ class Environment(gym.Env):
 
     def turn_off_render(self):
         self._env.turn_off_render()
-
-    # def render(self, mode='human'):
-    #     self._env.render()
 
     def save_render(self):
         self._env.save_render()

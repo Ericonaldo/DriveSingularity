@@ -1,5 +1,6 @@
 {
     "world": "configs/resources/osm.json",
+    "env_name": "simple_osm",
     "render_dir": "render/osm",
     "n_agents": 2,
     "total_vehicles": 40,

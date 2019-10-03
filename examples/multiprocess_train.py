@@ -33,10 +33,11 @@ if __name__ == "__main__":
                         default="simple",
                         choices=scenarios.__all__,
                         help="Scenario selection, default is `simple`")
-    parser.add_argument("--n_episode",
+    parser.add_argument("--n_epoch",
                         type=int,
                         default=100,
                         help="Learning episodes.")
+    parser.add_argument("--interval", type=int, default=20, help="Save interval, defaut is 20.")
     parser.add_argument("--run", type=str, default="PG", choices=set(ALGORITHMS.keys()))
     parser.add_argument("--share", action="store_true")
     parser.add_argument("--n_workers", type=int, default=2)
@@ -59,15 +60,14 @@ if __name__ == "__main__":
     pre = [None] * len(agent_ids)
     hyper_parameters = [{"gamma": 0.95}] * len(agent_ids)
 
+    # policy_configs: for non-parameter sharing mode, i.e. one policy per agent
     policy_configs = zip(pre, env.observation_space.values(),
                          env.action_space.values(), hyper_parameters)
     policy_configs = dict(zip(map(str, agent_ids), policy_configs))
 
     ray.init()
 
-    register_env(
-        "sync_ds_env", lambda _: multiprocess_wrapper.MultiAgentClient(
-            observation_space, action_space, agent_ids, env_config, args.scenario, max_step=args.max_step))
+    register_env(env_config['env_name'], lambda kwargs: multiprocess_wrapper.MultiAgentClient(**kwargs))
 
     ray_config = {
         "multiagent": {
@@ -83,10 +83,19 @@ if __name__ == "__main__":
         args.n_gpus,  # can be fractional, e.g., 1 GPU for 5 agent is: 0.2
         "num_cpus_per_worker": args.n_cpu_per_worker,
         "sample_batch_size": args.s_batch_size,
-        "train_batch_size": args.t_batch_size
+        "train_batch_size": args.t_batch_size,
+        "env_config": {
+            "observation_space": observation_space,
+            "action_space": action_space,
+            "agents": agent_ids,
+            "env_setup": env_config,
+            "scenario": args.scenario,
+            "max_step": args.max_step,
+            "render": False
+        }
     }
 
-    trainer = get_agent_class(args.run)(env="sync_ds_env", config=ray_config)
+    trainer = get_agent_class(args.run)(env=env_config['env_name'], config=ray_config)
 
     # save current configuration
     config_path = osp.join(CONFIG_BACKUP,
@@ -103,20 +112,15 @@ if __name__ == "__main__":
     with open(config_path, 'wb') as f:
         pickle.dump(
             {
-                "scenario": args.scenario,
-                "observation_space": observation_space,
-                "action_space": action_space,
-                "agent_ids": agent_ids,
-                "env_config": env_config,
                 "ray_config": ray_config,
                 "run": args.run
             }, f)
 
-    for epoch in range(args.n_episode):
+    for epoch in range(args.n_epoch):
         print("[INFO] training epoch: {}".format(epoch))
 
         trainer.train()
-        if (epoch + 1) % 20 == 0:
+        if (epoch + 1) % args.interval == 0:
             trainer.save(checkpoint_dir=model_backup)
 
     print("[training finished]")
