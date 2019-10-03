@@ -9,8 +9,6 @@ from . import simulator
 
 BASEDIR = osp.dirname(osp.dirname(osp.abspath(__file__)))
 
-# sys.path.append(osp.join(BASEDIR, "cmake-build-debug"))
-
 
 def parse_feedback(feedback_list, reward_parser):
     id_n, obs_n, done_n, reward_n = [], dict(), dict(), dict()
@@ -53,14 +51,6 @@ class Environment(gym.Env):
             env_setup["targetVelocityRange"]
         )
 
-        # TODO(ming): initialize render and agents
-        # env_setup['render_dir'] = osp.join(BASEDIR, env_setup['render_dir'])
-        # self._envs.set_render(osp.join(BASEDIR))
-        # self._env.set_render(env_setup['render_dir'])
-        # print("[DEBUG] render locates: {}".format(env_setup['render_dir']))
-
-        # TODO(ming): create generators for social vehicles
-        # self._env.load_generator(env_setup["generators"])
         self._env_setup = env_setup
 
         agent_ids = self._env.agents()
@@ -113,7 +103,6 @@ class Environment(gym.Env):
         self._scenario_callback.register_reward_rule(self._env)
 
         # check consistency
-        # print(self._scenario_callback.observation_space.keys(), agent_ids)
         assert list(self._scenario_callback.observation_space.keys()) == list(
             agent_ids)
 

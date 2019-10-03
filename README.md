@@ -89,4 +89,46 @@ After you have completed the training, you can execute the `examples/rollout.py`
 
 ## Scenario configuration
 
+A simple example:
 
+```json
+{
+    "world": "config/resoureces/osm.json",
+    "env_name": "simple_osm",
+    "render_dir": "render/osm",
+    "n_agents": 2,
+    "total_vehicles": 40,
+    "length_range": [15, 1],
+    "width_range": [8, 1],
+    "height_range": [15, 3],
+    "velocity_range": [0, 5],
+    "target_velocity_range": [10, 10],
+    "halfLengthRange": [12, 14],
+    "halfWidthRange": [7, 8],
+    "velocityRange": [10, 20],
+    "targetVelocityRange": [30, 50]
+}
+```
+
+**Environment macro settings**
+
+- `world`: relative path of road map, must be json format.
+- `env_name`: environment name for `registery.register_env`.
+- `render_dir`: specify the relative path for the rendering result storage.
+- `n_agents`: specify the maximum number of agents.
+- `total_vehicles`: specify the maximum number of **agents + social vehicles**.
+
+**Configuration for agent vehicles**
+
+- `length_range`: for agent, specify the length of agent vehicle, **left value** denotes the minimum, **right value** denotes the range, i.e, the range of length will be: `[left vaue, left value + right value]`.
+- `width_range`: for agent, specify the width of agent vehicle, **left value** denotes the minimum, **right value** denotes the range, i.e, the range of width will be: `[left vaue, left value + right value]`.
+- `height_range`: useless (currently).
+- `velocity_range`: for agent, specify the initialized speed, **left value** denotes the initialized speed, **left value** denotes the minimum, **right value** denotes the range, i.e, the range of initialized speed will be: `[left vaue, left value + right value]`.
+- `target_velocity_range`: for agent, specify the target speed if no extra interruption (i.e. agent actions), **left value** denotes the minimum, **right value** denotes the range, i.e, the range of target speed will be: `[left vaue, left value + right value]`.
+
+**Configuration for social vehicles**
+
+- `halfLengthRange`: for social vehicles, specify the half length, with the given range, the length of social vehicle will be `[left value * 2, right value * 2]`.
+- `halfWidthRange`: for social vehicles, specify the half width, with the given range, the width of social vehicle will be `[left value * 2, right value * 2]`.
+- `velocityRange`: for social vehicles, specify the start speed, with the given range, the initialized speed of social vehicle will be `[left value * 2, right value * 2]`.
+- `targetVelocityRange`: for social vehicles, specify the target speed, with the given range, the target speed of social vehicle will be `[left value * 2, right value * 2]`
