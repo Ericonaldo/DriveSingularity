@@ -2,7 +2,7 @@
   "roads": [
     {
       "id": 5, "type": "straight", "from": 1, "to": 4, "width": 80,
-      "ft": [-200, 1040], "fb": [-200, 960], "tt": [830.59, 1040], "tb": [830.59, 960],
+      "ft": [-200, 1040], "fb": [-200, 960], "tt": [830.56, 1040], "tb": [830.56, 960],
       "lanes": [
         {
           "reverse": true, "goStraight": true, "turnLeft": false, "turnRight": false,
@@ -16,7 +16,7 @@
     },
     {
       "id": 6, "type": "straight", "from": 2, "to": 4, "width": 80,
-      "ft": [-200, 444.72], "fb": [-200, 355.28], "tt": [830.59, 960], "tb": [1009.44, 960],
+      "ft": [-200, 444.72], "fb": [-200, 355.28], "tt": [830.56, 960], "tb": [1009.44, 960],
       "lanes": [
         {
           "reverse": false, "goStraight": true, "turnLeft": false, "turnRight": false,
@@ -55,7 +55,7 @@
       "id": 3, "type": "terminal", "linkedRoad": 7
     },
     {
-      "id": 4, "type": "onramp", "linkedRoads": [5, 6, 7]
+      "id": 4, "type": "onramp", "linkedRoads": [5, 6, 7], "center": [920, 1000]
     }
   ]
 }

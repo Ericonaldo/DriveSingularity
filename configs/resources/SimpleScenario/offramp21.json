@@ -67,7 +67,7 @@
       "id": 3, "type": "terminal", "linkedRoad": 7
     },
     {
-      "id": 4, "type": "offramp", "linkedRoads": [5, 6, 7]
+      "id": 4, "type": "offramp", "linkedRoads": [5, 6, 7], "center": [1160, 1000]
     }
   ]
 }
