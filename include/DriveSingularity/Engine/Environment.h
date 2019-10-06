@@ -24,20 +24,23 @@ namespace engine {
 
 using namespace utils;
 
+static constexpr std::size_t OperationInterval = 4;
+
 typedef std::array<std::vector<std::vector<double>>, 3> Observation;
+typedef std::array<Observation, 4> StackedObservation;
 
 struct FeedBack {
   VehicleId id;
-  Observation observation;
+  StackedObservation observation;
   double reward;
   bool done;
   std::vector<EventContainer> events;
 
-  FeedBack(VehicleId id, Observation observation, double reward, bool done,
+  FeedBack(VehicleId id, StackedObservation observation, double reward, bool done,
            std::vector<EventContainer> events)
       : id(id), observation(std::move(observation)), reward(reward), done(done),
         events(std::move(events)) {}
-  FeedBack(VehicleId id, Observation observation, double reward, bool done)
+  FeedBack(VehicleId id, StackedObservation observation, double reward, bool done)
       : FeedBack(id, std::move(observation), reward, done, {}) {}
 };
 
@@ -78,12 +81,7 @@ public: // API
             position = axi.getStart();
             rotation = (axi.getEnd() - axi.getStart()).getRotation();
           }
-          // if (position.getX() < videoAnchor1.getX() || position.getY() <
-          // videoAnchor1.getY() ||
-          //  position.getX() > videoAnchor2.getX() || position.getY() >
-          //  videoAnchor2.getY()) {
           generators.emplace_back(std::make_pair(position, rotation));
-          //}
         }
       }
     }
@@ -133,15 +131,17 @@ public: // API
   // TODO(ming): bubble search.
   Observation getObservation(VehicleId vehicleId, std::size_t viewLength = 84,
                              std::size_t viewWidth = 84);
+  void getStackedObservation(VehicleId vehicleId, size_t i_frame, size_t viewLength = 84, size_t viewWidth = 84);
 
   void reset() {
-    //    roadMap->reset();
-    //    roadGraph->reset();
     vehicles.clear();
     vehicleGrid.clear();
     vehicleGridPos.clear();
     eraseVehicleId.clear();
     agents.clear();
+    stackObsMap.clear();
+    relatedVehicles.clear();
+    relatedRoads.clear();
 
     for (auto &kv : roadMap->getRoads())
       kv.second->clear();
@@ -156,7 +156,6 @@ public: // API
   void addListener(VehicleId vehicleId, std::vector<EventFlag::Type> events) {
     for (auto e : events) {
       vehicles.at(vehicleId)->setEventListening(e);
-      //      std::cout << "[DEBUG] set event: " << e << std::endl;
     }
   }
 
@@ -169,7 +168,7 @@ public: // API
 public: // c++ public callable
   static Environment makeHighway();
 
-  bool step();
+  bool step(size_t i_frame);
 
   const std::unordered_map<VehicleId,
                            std::shared_ptr<control::VehicleController>> &
@@ -250,7 +249,7 @@ private:
    * @param window
    * @return list<pair<road line, whether the line is continuous>>
    */
-  std::list<std::pair<Segment, bool>> getInvolvedRoadLines(const Obb &window);
+  std::list<std::pair<Segment, std::pair<bool, bool>>> getInvolvedRoadLines(const Obb &window);
 
 public:
   void setMaxVehicle(size_t maxVehicle);
@@ -265,7 +264,11 @@ private:
       vehicles;
   std::map<std::pair<int, int>, std::unordered_set<VehicleId>> vehicleGrid;
   std::map<VehicleId, std::pair<int, int>> vehicleGridPos;
+  std::unordered_map<VehicleId, StackedObservation> stackObsMap;
   std::unordered_set<VehicleId> agents;
+
+  std::unordered_map<VehicleId, std::list<std::shared_ptr<control::VehicleController>>> relatedVehicles;
+  std::unordered_map<VehicleId, std::list<std::pair<Segment, std::pair<bool, bool>>>>  relatedRoads;
 
   std::shared_ptr<roadmap::RoadMap> roadMap;
   std::shared_ptr<roadmap::Graph> roadGraph;
@@ -285,7 +288,7 @@ private:
 private: // predefined simulation attributions
   static constexpr double cellX = 100, cellY = 100;
   static constexpr std::size_t SimulationFrequency = 15;
-  static constexpr std::size_t OperationInterval = 15;
+//  static constexpr std::size_t OperationInterval = 15;
   static constexpr double dt = 1.0 / SimulationFrequency;
   static constexpr std::size_t MaxEpoch = 5000;
 

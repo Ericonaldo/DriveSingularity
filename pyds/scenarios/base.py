@@ -1,4 +1,4 @@
-DEFAULT_OBSERVATION_SHAPE = (84, 84, 3)
+DEFAULT_OBSERVATION_SHAPE = (4, 84, 84, 3)
 
 
 class BaseScenario(object):

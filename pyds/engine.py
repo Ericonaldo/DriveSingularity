@@ -15,8 +15,10 @@ def parse_feedback(feedback_list, reward_parser):
 
     for feedback in feedback_list:
         id_n.append(feedback.id)
-        obs_n[feedback.id] = np.swapaxes(
-            np.asarray(feedback.observation, dtype=np.float32), 0, 2)
+        # obs_n[feedback.id] = np.swapaxes(
+        #     np.asarray(feedback.observation, dtype=np.float32), 1, 2)
+        obs_n[feedback.id] = np.transpose(
+            np.asarray(feedback.observation, dtype=np.float32), (0, 2, 3, 1))
         done_n[feedback.id] = feedback.done
         reward_n[feedback.id] = reward_parser(feedback.id, feedback.events)
 

@@ -33,7 +33,7 @@ PYBIND11_MODULE(simulator, m) {
            });
 
   py::class_<FeedBack>(m, "FeedBack")
-      .def(py::init<std::size_t, engine::Observation, double, bool>())
+      .def(py::init<std::size_t, engine::StackedObservation, double, bool>())
       .def_readwrite("id", &FeedBack::id)
       .def_readwrite("observation", &FeedBack::observation)
       .def_readwrite("done", &FeedBack::done)

@@ -170,7 +170,7 @@ control::discrete::Action Environment::getAction(std::size_t id) {
  *
  * @return (refactor) done or not.
  */
-bool Environment::step() {
+bool Environment::step(size_t i_frame) {
   ++epoch;
 
   if (recordOn) {
@@ -180,6 +180,13 @@ bool Environment::step() {
 
   // intersection control
   roadMapChecking(); // call manage
+
+#pragma omp parallel for
+  for (auto i = 0; i < agents.size(); i++) {
+      auto iter = agents.begin();
+      std::advance(iter, i);
+      getStackedObservation(*iter, i_frame);
+  }
 
   // vehicle control
   for (const auto &kv : vehicles) {
@@ -208,18 +215,18 @@ bool Environment::step() {
       vehicleGrid[newGridPos].emplace(id);
     }
   }
-
+//  std::cout << "[DEBUG] start epoch " << epoch << std::endl;
 #pragma omp parallel for default(none)
   for (auto i = 0; i < vehicles.size(); i++) {
+//      std::cout << "[DEBUG] >>>>> " << epoch << std::endl;
     auto iter = vehicles.begin();
     std::advance(iter, i);
-    iter->second->setCrash(checkCollision(iter->first));
+    bool state = checkCollision(iter->first);
+//      std::cout << "[DEBUG] <<<<< " << epoch << std::endl;
+    iter->second->setCrash(state);
   }
-  //  for (auto itr = vehicles.begin(); itr < vehicles.end(); itr++) {
-  //      auto id = itr->first;
-  //      const auto &v = itr->second;
-  //      v->setCrash(checkCollision(id));
-  //  }
+
+//  std::cout << "MEDIUM" << epoch << std::endl;
 
   for (const auto &kv : vehicles) {
     const auto &v = kv.second;
@@ -231,6 +238,8 @@ bool Environment::step() {
       eraseVehicleId.emplace_back(id);
     }
   }
+
+//  std::cout << "[DEBUG] end epoch " << epoch << std::endl;
 
   // update vehicle map
   updateVehicleMap();
@@ -256,7 +265,7 @@ Environment::step(const std::unordered_map<VehicleId, std::size_t> &action) {
   events.clear();
 
   for (size_t t = 0; t < OperationInterval; ++t) {
-    step();
+    step(t);
     if (isTerminal())
       break;
   }
@@ -266,7 +275,7 @@ Environment::step(const std::unordered_map<VehicleId, std::size_t> &action) {
   for (auto &id : agents) {
     auto &vehicle = vehicles.at(id);
 
-    feedback.emplace_back(id, getObservation(id), 0, vehicle->isTerminate(),
+    feedback.emplace_back(id, stackObsMap.at(id), 0, vehicle->isTerminate(),
                           events.at(id));
 
     if (vehicle->isTerminate()) {
@@ -275,7 +284,6 @@ Environment::step(const std::unordered_map<VehicleId, std::size_t> &action) {
   }
 
   generateVehicles();
-
   updateVehicleMap();
 
   // remove dead agents (collision)
@@ -289,6 +297,81 @@ Environment::step(const std::unordered_map<VehicleId, std::size_t> &action) {
   eraseVehicleId.clear();
 
   return feedback;
+}
+
+void Environment::getStackedObservation(VehicleId vehicleId, size_t i_frame, size_t viewLength, size_t viewWidth) {
+    const auto &agent = vehicles.at(vehicleId);
+    assert(agent);
+
+    auto center = agent->getPosition();
+
+    size_t rLength = viewLength * Magnification, rWidth = viewWidth * Magnification;
+
+    auto adjacentVehicles = getAdjacentVehicles(center, rLength, rWidth);
+    auto involvedRoadLines = getInvolvedRoadLines(Obb(rLength / 2., rWidth / 2., agent->getPosition()));
+
+    Observation observation;
+    observation.fill(std::vector<std::vector<double>>(viewLength, std::vector<double>(viewWidth, 0.)));
+
+    double minX = center.getX() - rLength / 2.;
+    double minY = center.getY() - rWidth / 2.;
+
+    for (const auto &v: adjacentVehicles) {
+        int x = (int)((v->getPosition().getX() - minX) / Magnification),
+                y = (int)((v->getPosition().getY() - minY) / Magnification);
+        if (!(x >= 0 && x < viewLength && y >= 0 && y < viewWidth))
+            continue;
+        observation[0][x][y] = 1.0;
+        observation[1][x][y] = v->getVelocity() / control::MaxVelocity;
+        observation[2][x][y] = wrapToPi(v->getRotation()) / 2 / Pi;
+    }
+
+    for (const auto &entity: involvedRoadLines) {
+        auto &segment = entity.first;
+        bool continuous = entity.second.first;
+
+        if (std::abs(segment.getStart().getX() - segment.getEnd().getX()) < eps) {
+            int x = (int)((segment.getStart().getX() - minX) / Magnification);
+            if (!(x >= 0 && x < viewLength))
+                continue;
+            for (std::size_t y = 0; y < viewWidth; ++y) {
+                if (!continuous && y % 4 >= 2)
+                    continue;
+                observation[0][x][y] = 1.0;
+            }
+        } else {
+            double slope = (segment.getEnd().getY() - segment.getStart().getY()) /
+                           (segment.getEnd().getX() - segment.getStart().getX());
+            for (std::size_t x = 0; x < viewLength; ++x) {
+                int y = (int)((slope * (minX + x * Magnification -
+                                        segment.getStart().getX()) +
+                               segment.getStart().getY() - minY) /
+                              Magnification);
+                if (y < 0 || y >= viewWidth)
+                    continue;
+                observation[0][x][y] = 1.0;
+            }
+        }
+    }
+
+    if (stackObsMap.find(vehicleId) == stackObsMap.end()) {
+        StackedObservation stackedObservation;
+        stackedObservation.fill(observation);
+        stackObsMap.emplace(vehicleId, stackedObservation);
+    } else {
+        stackObsMap.at(vehicleId)[i_frame] = observation;
+    }
+
+    if (relatedRoads.find(vehicleId) == relatedRoads.end()) {
+        relatedVehicles[vehicleId];
+        relatedRoads[vehicleId];
+    } else {
+        relatedVehicles[vehicleId] = adjacentVehicles;
+        relatedRoads[vehicleId] = involvedRoadLines;
+    }
+
+//    if (relatedVehicles.find(vehicleId) == relatedVehicles.end()) relatedVehicles[vehicleId];
+//    else relatedVehicles[vehicleId] = adjacentVehicles;
 }
 
 Observation Environment::getObservation(VehicleId vehicleId,
@@ -321,7 +404,7 @@ Observation Environment::getObservation(VehicleId vehicleId,
   double minX = center.getX() - rangeLength / 2.0,
          minY = center.getY() - rangeWidth / 2.0;
 
-#pragma omp parallel for
+//#pragma omp parallel for
   for (auto i = 0; i < adjacentVehicles.size(); i++) {
     auto itr = adjacentVehicles.begin();
     std::advance(itr, i);
@@ -335,12 +418,12 @@ Observation Environment::getObservation(VehicleId vehicleId,
     observation[2][x][y] = wrapToPi(v->getRotation()) / 2 / Pi;
   }
 
-#pragma omp parallel for
+//#pragma omp parallel for
   for (auto i = 0; i < involvedRoadLines.size(); i++) {
     auto itr = involvedRoadLines.begin();
     std::advance(itr, i);
     const auto &segment = itr->first;
-    bool continuous = itr->second;
+    bool continuous = itr->second.first;
     if (std::abs(segment.getStart().getX() - segment.getEnd().getX()) < eps) {
       int x = (int)((segment.getStart().getX() - minX) / Magnification);
       if (!(x >= 0 && x < viewLength))
@@ -396,9 +479,9 @@ Environment::getAdjacentVehicles(const VectorD &center, double rangeLength,
   return adjacentVehicles;
 }
 
-std::list<std::pair<Segment, bool>>
+std::list<std::pair<Segment, std::pair<bool, bool>>>
 Environment::getInvolvedRoadLines(const Obb &window) {
-  std::list<std::pair<Segment, bool>> involvedLines;
+  std::list<std::pair<Segment, std::pair<bool, bool>>> involvedLines;
   const auto &roads = roadMap->getRoads();
   for (auto &kv : roads) {
     std::shared_ptr<roadmap::StraightRoad> pSR =
@@ -418,7 +501,7 @@ Environment::getInvolvedRoadLines(const Obb &window) {
       if (!ds::checkCollision(window, edges[i]))
         continue;
       bool continuous = (i == 0 || i == edges.size() - 1 || i == midLine);
-      involvedLines.emplace_back(edges[i], continuous);
+      involvedLines.emplace_back(edges[i], std::make_pair(continuous, i == 0 || i == edges.size() - 1));
     }
   }
   return involvedLines;
@@ -638,25 +721,35 @@ bool Environment::checkOutMap(ds::VehicleId vehicleId) const {
 
 bool Environment::checkCollision(VehicleId vehicleId) const {
   const auto &v = vehicles.at(vehicleId);
-  for (const auto &kv : vehicles) {
-    if (kv.first == vehicleId)
-      continue;
-    if (ds::checkCollision(*kv.second, *v)) {
-      return true;
-    }
+
+  if (relatedVehicles.find(vehicleId) != relatedVehicles.end()) {
+      const std::list<std::shared_ptr<control::VehicleController>>& relatedVs = relatedVehicles.at(vehicleId);
+      for (const auto& kv : relatedVs) {
+          if (kv->getId() == vehicleId) continue;
+          if (ds::checkCollision(*kv, *v)) return true;
+//    if (kv.first == vehicleId)
+//      continue;
+//    if (ds::checkCollision(*kv.second, *v)) {
+//      return true;
+//    }
+      }
   }
 
-  for (const auto &kv : roadMap->getRoads()) {
-    auto road = std::dynamic_pointer_cast<roadmap::StraightRoad>(kv.second);
-    if (!road)
-      continue;
-    auto &edges = road->getEdges();
-    if (ds::checkCollision(edges.front(), *v))
-      return true;
-    if (ds::checkCollision(edges.back(), *v))
-      return true;
+//    std::cout << "[DEBUG] check collision " << epoch << std::endl;
+  if (relatedRoads.find(vehicleId) != relatedRoads.end()) {
+      const std::list<std::pair<Segment, std::pair<bool, bool>>>& relatedRs = relatedRoads.at(vehicleId);
+      for (const auto &kv : relatedRs) {
+//    auto road = std::dynamic_pointer_cast<roadmap::StraightRoad>(kv.second);
+//    if (!road)
+//      continue;
+          if (kv.second.second && ds::checkCollision(kv.first, *v)) return true;
+//    auto &edges = road->getEdges();
+//    if (ds::checkCollision(edges.front(), *v))
+//      return true;
+//    if (ds::checkCollision(edges.back(), *v))
+//      return true;
+      }
   }
-
   return false;
 }
 
