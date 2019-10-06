@@ -6,7 +6,9 @@ option(ENABLE_TESTING "" OFF)
 
 find_package(PythonInterp 3 REQUIRED)
 set(PYBIND11_PYTHON_VERSION 3)
-set(CMAKE_CXX_STANDARD 14)
+#set(CMAKE_CXX_STANDARD 14)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -fopenmp -pthread")
 
 add_subdirectory(pybind11)
 add_subdirectory(src)
